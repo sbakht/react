@@ -33,20 +33,31 @@ function buildCorrectChoice(roots, type) {
   return { val: maadhi, text: maadhi, isCorrect: true };
 }
 
-function maadhiQ(num, pick, type) {
-  return Array(num).fill(1).map(function() {
-    var roots = Util.Root.getRandom(3);
-    var gen = Generator(roots, false);
+//REPLACE WITH ES6 CLASSES AND FIX THAT THIS CONTEXT
+function QuestionBuilder(options) {
 
-    var choices = buildWrongChoices(gen, pick).concat(buildCorrectChoice(roots, type))
-    return {
-      text: "Which is the 3rd person masculine maadhi?",
-      choices: choices
-    };
-  });
+  this.text = options.text;
+  this.numQuestions = options.numQuestions || 3; //es6 to set default??
+
+  this.maadhiQ = function(pick, type) {
+    return Array(this.numQuestions).fill(1).map(function() {
+      var roots = Util.Root.getRandom(3);
+      var gen = Generator(roots, false);
+
+      var choices = buildWrongChoices(gen, pick).concat(buildCorrectChoice(roots, type))
+      return {
+        text: this.text,
+        choices: choices
+      };
+    }, this);
+    //fix this context with es6?
+  }
 }
 
-export default {
-  maadhiQ: maadhiQ
-};
+var out = new QuestionBuilder({
+  text : "Which is the 3rd person masculine maadhi?",
+  numQuestions : 1
+});
+
+export default out;
 

@@ -13,7 +13,7 @@ test('Link changes the class when hovered', () => {
     form: 2
   })
 
-  var question = QuestionBuilder.maadhiQ(1, ['past'], 'type1');
+  var question = QuestionBuilder.maadhiQ(['past'], 'type1');
   expect(question).toMatchSnapshot();
 
 });
