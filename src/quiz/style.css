@@ -1,0 +1,49 @@
+.quiz {
+  background: #fdfdfd;
+  padding: 0 12px;
+}
+
+.title {
+  text-align: center;
+}
+
+.choice {
+    width: 47%;
+    display: inline-block;
+    background-color: #56ff00;
+    margin: 3px;
+    padding: 6px;
+    text-align: center;
+    cursor:pointer;
+}
+
+.choice input[type="radio"] {
+  opacity: 0;
+}
+
+.choice.selected {
+  background-color: #d9ebff;
+}
+
+nav {
+  text-align: right;
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin: 6px;
+}
+
+button {
+  margin: 0 auto;  
+}
+
+.answerMsg {
+  float: left;
+}
+
+

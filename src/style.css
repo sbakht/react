@@ -1,0 +1,46 @@
+.app td{
+  font-size: 80px;
+}
+
+table {
+  direction: rtl;
+  width: 100%;
+  margin: 0 auto;
+}
+
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+tr#active td, tr#passive td {
+  width: 25%;
+}
+
+tr#command td {
+  width: 33%;
+}
+
+button {
+  display: block;
+}
+
+#roots div {
+  margin: 6px 0;
+}
+
+body {
+	color: #444;
+	font-size: 18px;
+	line-height: 1.6;
+	margin: 40px auto;
+	max-width: 650px;
+	padding: 0 10px;
+}
+
+h1,
+h2,
+h3 {
+	line-height: 1.2;
+  color: #333;
+}

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link changes the class when hovered 1`] = `
+Array [
+  Object {
+    "choices": Array [
+      Object {
+        "isWrong": true,
+        "text": Array [
+          "كَسَّنَ",
+        ],
+        "val": Array [
+          "كَسَّنَ",
+        ],
+      },
+      Object {
+        "isWrong": true,
+        "text": Array [
+          "كَسَّنَ",
+        ],
+        "val": Array [
+          "كَسَّنَ",
+        ],
+      },
+      Object {
+        "isWrong": true,
+        "text": Array [
+          "كَسَّنَ",
+        ],
+        "val": Array [
+          "كَسَّنَ",
+        ],
+      },
+      Object {
+        "isCorrect": true,
+        "text": Array [
+          Array [
+            "ك",
+            "َ",
+          ],
+          Array [
+            "س",
+            "َ",
+          ],
+          Array [
+            "ن",
+            "َ",
+          ],
+        ],
+        "val": Array [
+          Array [
+            "ك",
+            "َ",
+          ],
+          Array [
+            "س",
+            "َ",
+          ],
+          Array [
+            "ن",
+            "َ",
+          ],
+        ],
+      },
+    ],
+    "text": "Which is the 3rd person masculine maadhi?",
+  },
+]
+`;
