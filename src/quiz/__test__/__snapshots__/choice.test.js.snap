@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`choice text 1`] = `
+<label
+  className="choice"
+>
+  <input
+    name="choices"
+    onClick={[Function]}
+    type="radio"
+  />
+  choice#1
+</label>
+`;
+
+exports[`renders default 1`] = `
+<label
+  className="choice"
+>
+  <input
+    name="choices"
+    onClick={[Function]}
+    type="radio"
+  />
+</label>
+`;
+
+exports[`renders selected choice 1`] = `
+<label
+  className="choice selected"
+>
+  <input
+    checked={true}
+    name="choices"
+    onClick={[Function]}
+    type="radio"
+  />
+</label>
+`;

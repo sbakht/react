@@ -5,7 +5,7 @@ import Practice from "./practice";
 import Game from "./game";
 import Quiz from "./quiz";
 import _ from "underscore";
-import questionBuilder from "./questionBuilder";
+import QuestionBuilder from "./questionBuilder";
 
 // class App extends React.Component {
 //   render() {
@@ -17,8 +17,11 @@ import questionBuilder from "./questionBuilder";
 //     );
 //   }
 // }
-
-var questions = questionBuilder.maadhiQ(3, ["past"], "type1");
+var out = new QuestionBuilder({
+  text : "Which is the 3rd person masculine maadhi?",
+  numQuestions : 3
+});
+var questions = out.maadhiQ(['past'], 'type1');
 console.log(questions);
 // var questions = [
 // {
@@ -97,4 +100,4 @@ class App extends React.Component {
   }
 }
 
-render(<App />, document.getElementById("demo"));
+render(<App />, document.getElementById("root"));

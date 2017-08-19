@@ -29,7 +29,7 @@ const QuizQuestion = props => {
       {question.choices.map(function(choice) {
         const selected = isSelected(choice);
         return (
-          <Choice isSelected={selected} choice={choice} onClick={onAnswer} />
+          <Choice isSelected={selected} choice={choice} onClick={onAnswer} key={choice.index} />
         );
       })}
       <AnswerMessage answer={answer} />

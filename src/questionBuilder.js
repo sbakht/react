@@ -18,14 +18,9 @@ function pluckMany(obj, arr) {
 }
 
 function buildWrongChoices(gen, pick) {
-  return Array(3)
-    .fill(1)
-    .map(function() {
-      return _.sample(pluckMany(gen.word, pick), 1);
-    })
-    .map(function(wrong) {
-      return buildChoice(wrong, false);
-    });
+  return Array(3).fill(1)
+    .map(() => _.sample(pluckMany(gen.word, pick), 1) )
+    .map((wrong) => buildChoice(wrong, false));
 }
 
 function buildCorrectChoice(roots, type) {
@@ -33,14 +28,14 @@ function buildCorrectChoice(roots, type) {
   return { val: maadhi, text: maadhi, isCorrect: true };
 }
 
-//REPLACE WITH ES6 CLASSES AND FIX THAT THIS CONTEXT
-function QuestionBuilder(options) {
+class QuestionBuilder {
+  constructor(options) {
+    this.text = options.text;
+    this.numQuestions = options.numQuestions || 3; //es6 to set default??
+  }
 
-  this.text = options.text;
-  this.numQuestions = options.numQuestions || 3; //es6 to set default??
-
-  this.maadhiQ = function(pick, type) {
-    return Array(this.numQuestions).fill(1).map(function() {
+  maadhiQ(pick, type) {
+    return Array(this.numQuestions).fill(1).map(() => {
       var roots = Util.Root.getRandom(3);
       var gen = Generator(roots, false);
 
@@ -49,15 +44,9 @@ function QuestionBuilder(options) {
         text: this.text,
         choices: choices
       };
-    }, this);
-    //fix this context with es6?
+    });
   }
 }
 
-var out = new QuestionBuilder({
-  text : "Which is the 3rd person masculine maadhi?",
-  numQuestions : 1
-});
-
-export default out;
+export default QuestionBuilder;
 

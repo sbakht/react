@@ -17,6 +17,10 @@
     cursor:pointer;
 }
 
+.choice:hover {
+  font-size: 16px;
+}
+
 .choice input[type="radio"] {
   opacity: 0;
 }

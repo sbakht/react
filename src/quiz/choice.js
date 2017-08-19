@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Choice = props => {
   const onAnswer = () => {
-    console.log(choice);
     props.onClick(choice);
   };
 
@@ -18,17 +18,19 @@ const Choice = props => {
     <label className={getClass()}>
       <input
         type="radio"
+        name="choices"
         onClick={onAnswer}
-        onChange={onAnswer}
-        data-value={choice.val}
-        key={choice.index}
-        value={choice.val}
-        data-index={choice.index}
         checked={isSelected}
       />
       {choice.text}
     </label>
   );
+};
+
+Choice.propTypes = {
+  choice: PropTypes.object.isRequired,
+  isSelected: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default Choice;
