@@ -7,9 +7,14 @@ const Results = props => {
     return answer.isCorrect;
   }).length;
 
+  const columns = questions.map((question, i) => {
+  	return <p key={i}>Question #{i + 1}: {answers[i] && answers[i].isCorrect ? "Correct" : "Incorrect"}</p>
+  });
+
   return (
     <div>
       Score: {countCorrect}/{questions.length}
+      <div>{columns}</div>
     </div>
   );
 };

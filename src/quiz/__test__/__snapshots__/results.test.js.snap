@@ -6,5 +6,31 @@ exports[`render default 1`] = `
   2
   /
   4
+  <div>
+    <p>
+      Question #
+      1
+      : 
+      Correct
+    </p>
+    <p>
+      Question #
+      2
+      : 
+      Correct
+    </p>
+    <p>
+      Question #
+      3
+      : 
+      Incorrect
+    </p>
+    <p>
+      Question #
+      4
+      : 
+      Incorrect
+    </p>
+  </div>
 </div>
 `;

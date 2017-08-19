@@ -4,7 +4,7 @@ import Results from '../results';
 import toJSON from 'enzyme-to-json';
 
 test('render default', () => {
-  var questions = Array(4);
+  var questions = Array(4).fill(1);
   var answers = [{isCorrect : true}, {isCorrect : true}] 
   var component = shallow(<Results questions={questions} answers={answers} />);
   expect(toJSON(component)).toMatchSnapshot();
