@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correct 1`] = `
+<div
+  className="answerMsg"
+>
+  <div
+    className="success"
+    style={
+      Object {
+        "color": "green",
+        "correct": Object {
+          "color": "green",
+        },
+        "fontWeight": "bold",
+        "wrong": Object {
+          "color": "red",
+        },
+      }
+    }
+  >
+    Correct
+  </div>
+</div>
+`;
+
+exports[`render incorrect 1`] = `
+<div
+  className="answerMsg"
+>
+  <div
+    className="warning"
+    style={
+      Object {
+        "color": "red",
+        "correct": Object {
+          "color": "green",
+        },
+        "fontWeight": "bold",
+        "wrong": Object {
+          "color": "red",
+        },
+      }
+    }
+  >
+    Incorrect
+  </div>
+</div>
+`;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Choice = props => {
   const onAnswer = () => {
-    props.onClick(choice);
+    onClick(choice);
   };
 
   const getClass = () => {
@@ -12,7 +12,7 @@ const Choice = props => {
     return arr.join(" ");
   };
 
-  const { choice, isSelected } = props;
+  const { choice, isSelected, onClick } = props;
 
   return (
     <label className={getClass()}>

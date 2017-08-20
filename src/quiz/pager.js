@@ -1,12 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Pager = props => {
   const isFirst = () => {
-    return props.qNum === 0;
+    return props.qNum === 1;
   };
 
   const isLast = () => {
-    return props.qNum === props.qLen - 1;
+    return props.qNum === props.qLen;
   };
 
   return (
@@ -37,5 +38,13 @@ const Pager = props => {
     </div>
   );
 };
+
+Pager.propTypes = {
+  qNum : PropTypes.number.isRequired,
+  qLen : PropTypes.number.isRequired,
+  onPrev : PropTypes.func.isRequired,
+  onNext : PropTypes.func.isRequired,
+  showResults : PropTypes.func
+}
 
 export default Pager;

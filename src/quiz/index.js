@@ -40,13 +40,14 @@ class Quiz extends React.Component {
                 question={this.getActiveQuestion()}
                 answer={this.getActiveAnswer()}
                 onAnswer={this.onAnswer.bind(this)}
+                allowDoOver={true}
               />
             </div>
             <div>
               <Pager
                 onPrev={this.prevQuestion.bind(this)}
                 onNext={this.nextQuestion.bind(this)}
-                qNum={this.state.index}
+                qNum={this.state.index+1}
                 qLen={this.props.questions.length}
                 showResults={this.showResults.bind(this)}
               />

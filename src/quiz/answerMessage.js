@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "underscore";
+import PropTypes from "prop-types";
 
 const AnswerMessage = props => {
   const { isCorrect, isWrong } = props.answer;
@@ -30,5 +31,12 @@ const AnswerMessage = props => {
     </div>
   );
 };
+
+AnswerMessage.propTypes = {
+  answer : PropTypes.shape({
+    isCorrect : PropTypes.bool,
+    isWrong : PropTypes.bool
+  }).isRequired
+}
 
 export default AnswerMessage;

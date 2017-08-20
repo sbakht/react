@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render after answer 1`] = `
+<div>
+  <h3
+    className="title"
+  >
+    Question title
+  </h3>
+  <Choice
+    choice={
+      Object {
+        "isWrong": true,
+        "text": "riven",
+        "val": "a",
+      }
+    }
+    isSelected={true}
+    onClick={[Function]}
+  />
+  <Choice
+    choice={
+      Object {
+        "isWrong": true,
+        "text": "zed",
+        "val": "b",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <Choice
+    choice={
+      Object {
+        "isCorrect": true,
+        "text": "kogmaw",
+        "val": "c",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <Choice
+    choice={
+      Object {
+        "isWrong": true,
+        "text": "janna",
+        "val": "d",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <AnswerMessage
+    answer={
+      Object {
+        "val": "a",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`render before answer 1`] = `
+<div>
+  <h3
+    className="title"
+  >
+    Question title
+  </h3>
+  <Choice
+    choice={
+      Object {
+        "isWrong": true,
+        "text": "riven",
+        "val": "a",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <Choice
+    choice={
+      Object {
+        "isWrong": true,
+        "text": "zed",
+        "val": "b",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <Choice
+    choice={
+      Object {
+        "isCorrect": true,
+        "text": "kogmaw",
+        "val": "c",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <Choice
+    choice={
+      Object {
+        "isWrong": true,
+        "text": "janna",
+        "val": "d",
+      }
+    }
+    isSelected={false}
+    onClick={[Function]}
+  />
+  <AnswerMessage
+    answer={Object {}}
+  />
+</div>
+`;

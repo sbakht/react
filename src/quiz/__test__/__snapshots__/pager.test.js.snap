@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render first page 1`] = `
+<div>
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          Next
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div />
+</div>
+`;
+
+exports[`render last page 1`] = `
+<div>
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          Previous
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div>
+    <button
+      type="button"
+    >
+      Results
+    </button>
+  </div>
+</div>
+`;
+
+exports[`render middle page 1`] = `
+<div>
+  <nav>
+    <ul>
+      <li>
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          Previous
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          onClick={[Function]}
+        >
+          Next
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div />
+</div>
+`;
