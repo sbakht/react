@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`change question -> update answers 1`] = `
+<div
+  className="quiz"
+>
+  <div>
+    <div>
+      <p>
+        Question 
+        2
+         of 
+        2
+      </p>
+      <QuizQuestion
+        allowDoOver={true}
+        answer={Object {}}
+        onAnswer={[Function]}
+        question={
+          Object {
+            "choices": Array [
+              Object {
+                "isWrong": true,
+                "text": "riven",
+                "val": "a",
+              },
+              Object {
+                "isCorrect": true,
+                "text": "zed",
+                "val": "b",
+              },
+              Object {
+                "isWrong": true,
+                "text": "kogmaw",
+                "val": "c",
+              },
+              Object {
+                "isWrong": true,
+                "text": "janna",
+                "val": "d",
+              },
+            ],
+            "text": "Who is a mid?",
+          }
+        }
+      />
+    </div>
+    <div>
+      <Pager
+        onNext={[Function]}
+        onPrev={[Function]}
+        qLen={2}
+        qNum={2}
+        showResults={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`change question -> update answers 2`] = `
+<div
+  className="quiz"
+>
+  <div>
+    <div>
+      <p>
+        Question 
+        2
+         of 
+        2
+      </p>
+      <QuizQuestion
+        allowDoOver={true}
+        answer={
+          Object {
+            "isWrong": true,
+            "text": "riven",
+            "val": "a",
+          }
+        }
+        onAnswer={[Function]}
+        question={
+          Object {
+            "choices": Array [
+              Object {
+                "isWrong": true,
+                "text": "riven",
+                "val": "a",
+              },
+              Object {
+                "isCorrect": true,
+                "text": "zed",
+                "val": "b",
+              },
+              Object {
+                "isWrong": true,
+                "text": "kogmaw",
+                "val": "c",
+              },
+              Object {
+                "isWrong": true,
+                "text": "janna",
+                "val": "d",
+              },
+            ],
+            "text": "Who is a mid?",
+          }
+        }
+      />
+    </div>
+    <div>
+      <Pager
+        onNext={[Function]}
+        onPrev={[Function]}
+        qLen={2}
+        qNum={2}
+        showResults={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`change question 1`] = `
+<div
+  className="quiz"
+>
+  <div>
+    <div>
+      <p>
+        Question 
+        2
+         of 
+        2
+      </p>
+      <QuizQuestion
+        allowDoOver={true}
+        answer={Object {}}
+        onAnswer={[Function]}
+        question={
+          Object {
+            "choices": Array [
+              Object {
+                "isWrong": true,
+                "text": "riven",
+                "val": "a",
+              },
+              Object {
+                "isCorrect": true,
+                "text": "zed",
+                "val": "b",
+              },
+              Object {
+                "isWrong": true,
+                "text": "kogmaw",
+                "val": "c",
+              },
+              Object {
+                "isWrong": true,
+                "text": "janna",
+                "val": "d",
+              },
+            ],
+            "text": "Who is a mid?",
+          }
+        }
+      />
+    </div>
+    <div>
+      <Pager
+        onNext={[Function]}
+        onPrev={[Function]}
+        qLen={2}
+        qNum={2}
+        showResults={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`change question 2`] = `
+<div
+  className="quiz"
+>
+  <div>
+    <div>
+      <p>
+        Question 
+        1
+         of 
+        2
+      </p>
+      <QuizQuestion
+        allowDoOver={true}
+        answer={Object {}}
+        onAnswer={[Function]}
+        question={
+          Object {
+            "choices": Array [
+              Object {
+                "isWrong": true,
+                "text": "riven",
+                "val": "a",
+              },
+              Object {
+                "isWrong": true,
+                "text": "zed",
+                "val": "b",
+              },
+              Object {
+                "isCorrect": true,
+                "text": "kogmaw",
+                "val": "c",
+              },
+              Object {
+                "isWrong": true,
+                "text": "janna",
+                "val": "d",
+              },
+            ],
+            "text": "Who is an adc?",
+          }
+        }
+      />
+    </div>
+    <div>
+      <Pager
+        onNext={[Function]}
+        onPrev={[Function]}
+        qLen={2}
+        qNum={1}
+        showResults={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`render question 1`] = `
+<div
+  className="quiz"
+>
+  <div>
+    <div>
+      <p>
+        Question 
+        1
+         of 
+        2
+      </p>
+      <QuizQuestion
+        allowDoOver={true}
+        answer={Object {}}
+        onAnswer={[Function]}
+        question={
+          Object {
+            "choices": Array [
+              Object {
+                "isWrong": true,
+                "text": "riven",
+                "val": "a",
+              },
+              Object {
+                "isWrong": true,
+                "text": "zed",
+                "val": "b",
+              },
+              Object {
+                "isCorrect": true,
+                "text": "kogmaw",
+                "val": "c",
+              },
+              Object {
+                "isWrong": true,
+                "text": "janna",
+                "val": "d",
+              },
+            ],
+            "text": "Who is an adc?",
+          }
+        }
+      />
+    </div>
+    <div>
+      <Pager
+        onNext={[Function]}
+        onPrev={[Function]}
+        qLen={2}
+        qNum={1}
+        showResults={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`render results 1`] = `
+<div
+  className="quiz"
+>
+  <Results
+    answers={Array []}
+    questions={
+      Array [
+        Object {
+          "choices": Array [
+            Object {
+              "isWrong": true,
+              "text": "riven",
+              "val": "a",
+            },
+            Object {
+              "isWrong": true,
+              "text": "zed",
+              "val": "b",
+            },
+            Object {
+              "isCorrect": true,
+              "text": "kogmaw",
+              "val": "c",
+            },
+            Object {
+              "isWrong": true,
+              "text": "janna",
+              "val": "d",
+            },
+          ],
+          "text": "Who is an adc?",
+        },
+        Object {
+          "choices": Array [
+            Object {
+              "isWrong": true,
+              "text": "riven",
+              "val": "a",
+            },
+            Object {
+              "isCorrect": true,
+              "text": "zed",
+              "val": "b",
+            },
+            Object {
+              "isWrong": true,
+              "text": "kogmaw",
+              "val": "c",
+            },
+            Object {
+              "isWrong": true,
+              "text": "janna",
+              "val": "d",
+            },
+          ],
+          "text": "Who is a mid?",
+        },
+      ]
+    }
+  />
+</div>
+`;
+
+exports[`update answers 1`] = `
+<div
+  className="quiz"
+>
+  <div>
+    <div>
+      <p>
+        Question 
+        1
+         of 
+        2
+      </p>
+      <QuizQuestion
+        allowDoOver={true}
+        answer={
+          Object {
+            "isWrong": true,
+            "text": "zed",
+            "val": "b",
+          }
+        }
+        onAnswer={[Function]}
+        question={
+          Object {
+            "choices": Array [
+              Object {
+                "isWrong": true,
+                "text": "riven",
+                "val": "a",
+              },
+              Object {
+                "isWrong": true,
+                "text": "zed",
+                "val": "b",
+              },
+              Object {
+                "isCorrect": true,
+                "text": "kogmaw",
+                "val": "c",
+              },
+              Object {
+                "isWrong": true,
+                "text": "janna",
+                "val": "d",
+              },
+            ],
+            "text": "Who is an adc?",
+          }
+        }
+      />
+    </div>
+    <div>
+      <Pager
+        onNext={[Function]}
+        onPrev={[Function]}
+        qLen={2}
+        qNum={1}
+        showResults={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;

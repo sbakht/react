@@ -3,6 +3,7 @@ import QuizQuestion from "./quizQuestion";
 import Pager from "./pager";
 import css from "./style.css";
 import Results from "./results";
+import PropTypes from "prop-types";
 
 class Quiz extends React.Component {
   constructor() {
@@ -13,7 +14,7 @@ class Quiz extends React.Component {
     return this.props.questions[this.state.index];
   }
   getActiveAnswer() {
-    return this.state.answers[this.state.index] || [];
+    return this.state.answers[this.state.index] || {};
   }
   onAnswer(choice) {
     const answers = Object.assign([], this.state.answers);
@@ -61,6 +62,10 @@ class Quiz extends React.Component {
       </div>
     );
   }
+}
+
+Quiz.propTypes = {
+  questions : PropTypes.array
 }
 
 export default Quiz;

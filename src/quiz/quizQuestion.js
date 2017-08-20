@@ -16,7 +16,7 @@ const QuizQuestion = props => {
   };
 
   const isSelected = choice => {
-    return choice.val === props.answer.val;
+    return choice.val === answer.val;
   };
 
   const { question, answer, allowDoOver } = props;
