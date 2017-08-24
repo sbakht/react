@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Choice = props => {
+const Choice = (props) => {
   const onAnswer = () => {
     onClick(choice);
   };
 
   const getClass = () => {
-    var arr = ["choice"];
-    isSelected ? arr.push("selected") : "";
-    return arr.join(" ");
+    const arr = ['choice'];
+    isSelected ? arr.push('selected') : '';
+    return arr.join(' ');
   };
 
   const { choice, isSelected, onClick } = props;
@@ -30,7 +30,7 @@ const Choice = props => {
 Choice.propTypes = {
   choice: PropTypes.object.isRequired,
   isSelected: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 export default Choice;

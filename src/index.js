@@ -1,11 +1,11 @@
-import React from "react";
-import { render } from "react-dom";
-import css from "./style.css";
-import Practice from "./practice";
-import Game from "./game";
-import Quiz from "./quiz";
-import _ from "underscore";
-import QuestionBuilder from "./questionBuilder";
+import React from 'react';
+import { render } from 'react-dom';
+import css from './style.css';
+import Practice from './practice';
+import Game from './game';
+import Quiz from './quiz';
+import _ from 'underscore';
+import QuestionBuilder from './questionBuilder';
 
 // class App extends React.Component {
 //   render() {
@@ -17,11 +17,11 @@ import QuestionBuilder from "./questionBuilder";
 //     );
 //   }
 // }
-var out = new QuestionBuilder({
-  text : "Which is the 3rd person masculine maadhi?",
-  numQuestions : 3
+const out = new QuestionBuilder({
+  text: 'Which is the 3rd person masculine maadhi?',
+  numQuestions: 3,
 });
-var questions = out.maadhiQ(['past'], 'type1');
+let questions = out.maadhiQ(['past'], 'type1');
 console.log(questions);
 // var questions = [
 // {
@@ -100,4 +100,4 @@ class App extends React.Component {
   }
 }
 
-render(<App />, document.getElementById("root"));
+render(<App />, document.getElementById('root'));

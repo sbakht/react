@@ -4,9 +4,9 @@ import Choice from '../choice';
 import toJSON from 'enzyme-to-json';
 
 test('renders default', () => {
-  var choice = {};
+  const choice = {};
   const component = shallow(
-    <Choice choice={choice} />
+    <Choice choice={choice} />,
   );
 
   expect(toJSON(component)).toMatchSnapshot();
@@ -14,9 +14,9 @@ test('renders default', () => {
 });
 
 test('renders selected choice', () => {
-  var choice = {};
+  const choice = {};
   const component = shallow(
-    <Choice choice={choice} isSelected={true} />
+    <Choice choice={choice} isSelected />,
   );
 
   expect(toJSON(component)).toMatchSnapshot();
@@ -24,20 +24,20 @@ test('renders selected choice', () => {
 });
 
 test('choice text', () => {
-  var choice = { text : 'choice#1'};
+  const choice = { text: 'choice#1' };
   const component = shallow(
-    <Choice choice={choice} />
+    <Choice choice={choice} />,
   );
 
   expect(toJSON(component)).toMatchSnapshot();
-  expect(component.text()).toBe("choice#1");
+  expect(component.text()).toBe('choice#1');
 });
 
 test('calls parent on choice select with choice', () => {
-  var fn = jest.fn();
-  var choice = { text : 'choice#1'};
+  const fn = jest.fn();
+  const choice = { text: 'choice#1' };
   const component = shallow(
-    <Choice choice={choice} onClick={fn} />
+    <Choice choice={choice} onClick={fn} />,
   );
 
   component.find('input').simulate('click');
@@ -47,7 +47,7 @@ test('calls parent on choice select with choice', () => {
 
 test('has proptypes', () => {
   expect(Choice.propTypes).toBeDefined();
-  
+
   Object.keys(Choice.propTypes).map((key) => {
     expect(Choice.propTypes[key]).toBeDefined();
   });

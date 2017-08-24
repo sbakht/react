@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const AnswerChoices = props => {
+const AnswerChoices = (props) => {
   const { onSelect } = props;
-  
+
   const onClick = (e) => {
     onSelect(e.target.dataset.type);
-  }
-  
+  };
+
   return (
     <div id="answerButtons">
       <div>
@@ -32,7 +32,7 @@ const AnswerChoices = props => {
 };
 
 AnswerChoices.propTypes = {
-  onSelect : React.PropTypes.function
+  onSelect: React.PropTypes.function,
 };
 
 export default AnswerChoices;

@@ -1,52 +1,80 @@
-import _ from "underscore";
-import Generator from "./generator";
-import Util from "./util";
+import _ from 'underscore';
+import Generator from './generator';
+import Util from './util';
 
 function buildChoice(val, isCorrect) {
   if (isCorrect) {
-    return { val: val, text: val, isCorrect: true };
+    return { val, text: val, isCorrect: true };
   }
-  return { val: val, text: val, isWrong: true };
+  return { val, text: val, isWrong: true };
 }
 
 function pluckMany(obj, arr) {
-  var result = {};
-  arr.forEach(function(item) {
+  const result = {};
+  arr.forEach((item) => {
     result[item] = obj[item];
   });
   return result;
 }
 
-function buildWrongChoices(gen, pick) {
-  return Array(3).fill(1)
-    .map(() => _.sample(pluckMany(gen.word, pick), 1) )
-    .map((wrong) => buildChoice(wrong, false));
-}
-
-function buildCorrectChoice(roots, type) {
-  var maadhi = Util.Root.toVerb(roots, type);
-  return { val: maadhi, text: maadhi, isCorrect: true };
-}
 
 class QuestionBuilder {
-  constructor(options) {
-    this.text = options.text;
-    this.numQuestions = options.numQuestions || 3; //es6 to set default??
-  }
-
-  maadhiQ(pick, type) {
-    return Array(this.numQuestions).fill(1).map(() => {
-      var roots = Util.Root.getRandom(3);
-      var gen = Generator(roots, false);
-
-      var choices = buildWrongChoices(gen, pick).concat(buildCorrectChoice(roots, type))
-      return {
-        text: this.text,
-        choices: choices
-      };
-    });
+  constructor({text, numQuestions}) {
+    this.text = text;
+    this.numQuestions = numQuestions || 3; // es6 to set default??
   }
 }
 
-export default QuestionBuilder;
+class MaadhiQuestion extends QuestionBuilder {
+  constructor(options) {
+    super(options);
+    this.build(options.pick, options.type);
+  }
+
+  build(pick, type) {
+    const roots = Util.Root.getRandom(3);
+    const gen = Generator(roots, false);
+
+    const choices = new Choices(gen, pick, roots, type);
+    this.question = {
+      text: this.text,
+      choices,
+    };
+  }
+}
+
+class Choices {
+  constructor(gen, pick, roots, type) {
+    var wrong = Array(3).fill(1).map(function() {
+      return new WrongChoice(gen, pick).choice;
+    });
+    var right = new CorrectChoice(roots, type).choice;
+    return wrong.concat(right);
+  }
+
+}
+
+class CorrectChoice {
+  constructor(roots, type) {
+    this.build(roots, type);
+  }
+
+  build(roots, type) {
+    const word = Util.Root.addVowels(roots, type);
+    this.choice = { val: word, text: word, isCorrect: true };
+  }
+}
+
+class WrongChoice {
+  constructor(gen, pick) {
+    this.build(gen, pick);
+  }
+
+  build(gen, pick) {
+    const word = _.sample(pluckMany(gen.word, pick), 1);
+    this.choice = buildChoice(word, false);
+  }
+}
+
+export { QuestionBuilder, MaadhiQuestion};
 

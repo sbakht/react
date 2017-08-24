@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-const Question = props => {
+const Question = (props) => {
   const { text } = props;
   return (
     <p>{text}</p>
   );
-}
+};
 
 Question.propTypes = {
-  text : React.PropTypes.string
+  text: React.PropTypes.string,
 };
 
 export default Question;

@@ -1,5 +1,5 @@
-import React from "react";
-import Util from "../util";
+import React from 'react';
+import Util from '../util';
 
 class Input extends React.Component {
   renderOption(item, i) {
@@ -60,18 +60,16 @@ class Input extends React.Component {
   }
 }
 
-const SelectLetter = props => {
-  const onChange = e => {
+const SelectLetter = (props) => {
+  const onChange = (e) => {
     props.onChange(e.target.id, e.target.value);
   };
 
-  const options = Util.getArabicChars().map(function(item) {
-    return (
-      <option key={item} value={item}>
-        {item}
-      </option>
-    );
-  });
+  const options = Util.getArabicChars().map(item => (
+    <option key={item} value={item}>
+      {item}
+    </option>
+  ));
 
   const { id, value } = props;
 

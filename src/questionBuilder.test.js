@@ -1,9 +1,7 @@
 // Link.react-test.js
 import React from 'react';
-import QuestionBuilder from './QuestionBuilder';
-import renderer from 'react-test-renderer';
+import {QuestionBuilder, MaadhiQuestion} from './QuestionBuilder';
 import Util from './util';
-import Choice from './quiz/choice';
 
 test('Link changes the class when hovered', () => {
   Util.Root.getRandom = jest.fn();
@@ -11,13 +9,14 @@ test('Link changes the class when hovered', () => {
     root1: 'ك',
     root2: 'س',
     root3: 'ن',
-    form: 2
-  })
-var out = new QuestionBuilder({
-  text : "Which is the 3rd person masculine maadhi?",
-  numQuestions : 1
-});
-  var question = out.maadhiQ(['past'], 'type1');
-  expect(question).toMatchSnapshot();
+    form: 2,
+  });
 
+  const question = new MaadhiQuestion({
+    text: 'Which is the 3rd person masculine maadhi?',
+    pick: ['past'],
+    type: 'type1'
+  });
+
+  expect(question.question).toMatchSnapshot();
 });

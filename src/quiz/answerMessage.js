@@ -1,19 +1,19 @@
-import React from "react";
-import _ from "underscore";
-import PropTypes from "prop-types";
+import React from 'react';
+import _ from 'underscore';
+import PropTypes from 'prop-types';
 
-const AnswerMessage = props => {
+const AnswerMessage = (props) => {
   const { isCorrect, isWrong } = props.answer;
 
   const getStyle = () => {
     const style = {
-      fontWeight: "bold",
+      fontWeight: 'bold',
       correct: {
-        color: "green"
+        color: 'green',
       },
       wrong: {
-        color: "red"
-      }
+        color: 'red',
+      },
     };
     return _.extend({}, style, isCorrect ? style.correct : style.wrong);
   };
@@ -33,10 +33,10 @@ const AnswerMessage = props => {
 };
 
 AnswerMessage.propTypes = {
-  answer : PropTypes.shape({
-    isCorrect : PropTypes.bool,
-    isWrong : PropTypes.bool
-  }).isRequired
-}
+  answer: PropTypes.shape({
+    isCorrect: PropTypes.bool,
+    isWrong: PropTypes.bool,
+  }).isRequired,
+};
 
 export default AnswerMessage;

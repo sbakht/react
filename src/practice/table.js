@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 class Table extends React.Component {
   render() {
-    var grammar = this.props.grammar;
+    const grammar = this.props.grammar;
     return (
       <div>
         <table>
@@ -25,7 +25,7 @@ class Table extends React.Component {
 
 class Active extends React.Component {
   render() {
-    var grammar = this.props.grammar;
+    const grammar = this.props.grammar;
     return (
       <tr id="active">
         <td>
@@ -64,15 +64,14 @@ class Passive extends React.Component {
           </td>
         </tr>
       );
-    } else {
-      return <div>NO PASSIVE</div>;
     }
+    return <div>NO PASSIVE</div>;
   }
 }
 
 class Command extends React.Component {
   render() {
-    var grammar = this.props.grammar;
+    const grammar = this.props.grammar;
     return (
       <table>
         <tr id="command">

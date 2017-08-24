@@ -1,9 +1,9 @@
-var obj = {
+const obj = {
   verb: {
     simple: {
-      type1: ["َ", "َ", "َ"]
-    }
-  }
+      type1: ['َ', 'َ', 'َ'],
+    },
+  },
 };
 
 export default obj;

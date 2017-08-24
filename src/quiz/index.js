@@ -1,9 +1,9 @@
-import React from "react";
-import QuizQuestion from "./quizQuestion";
-import Pager from "./pager";
-import css from "./style.css";
-import Results from "./results";
-import PropTypes from "prop-types";
+import React from 'react';
+import QuizQuestion from './quizQuestion';
+import Pager from './pager';
+import css from './style.css';
+import Results from './results';
+import PropTypes from 'prop-types';
 
 class Quiz extends React.Component {
   constructor() {
@@ -19,7 +19,7 @@ class Quiz extends React.Component {
   onAnswer(choice) {
     const answers = Object.assign([], this.state.answers);
     answers[this.state.index] = choice;
-    this.setState({ answers: answers });
+    this.setState({ answers });
   }
   nextQuestion() {
     this.setState({ index: this.state.index + 1 });
@@ -36,19 +36,19 @@ class Quiz extends React.Component {
         {!this.state.showResults &&
           <div>
             <div>
-              <p>Question {this.state.index+1} of {this.props.questions.length}</p>
+              <p>Question {this.state.index + 1} of {this.props.questions.length}</p>
               <QuizQuestion
                 question={this.getActiveQuestion()}
                 answer={this.getActiveAnswer()}
                 onAnswer={this.onAnswer.bind(this)}
-                allowDoOver={true}
+                allowDoOver
               />
             </div>
             <div>
               <Pager
                 onPrev={this.prevQuestion.bind(this)}
                 onNext={this.nextQuestion.bind(this)}
-                qNum={this.state.index+1}
+                qNum={this.state.index + 1}
                 qLen={this.props.questions.length}
                 showResults={this.showResults.bind(this)}
               />
@@ -65,7 +65,7 @@ class Quiz extends React.Component {
 }
 
 Quiz.propTypes = {
-  questions : PropTypes.array
-}
+  questions: PropTypes.array,
+};
 
 export default Quiz;
