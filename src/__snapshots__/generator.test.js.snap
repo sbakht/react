@@ -1,0 +1,514 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`makes conjugations correctly 1`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "لَعِّفْ",
+    "faail": "مُلَعِّفٌ",
+    "forbid": " لا  تُلَعِّفْ",
+    "mafool": "مُلَعَّفٌ",
+    "masdr": "تَلعِيفًا",
+    "past": "لَعَّفَ",
+    "pastP": "لُعِّفَ",
+    "present": "يُلَعِّفُ",
+    "presentP": "يُلَعَّفُ",
+    "tharf": "مُلَعَّفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 2`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "لاعِفْ",
+    "faail": "مُلاعِفٌ",
+    "forbid": " لا  تُلاعِفْ",
+    "mafool": "مُلاعَفٌ",
+    "masdr": "لِعافًا وَ مُلاعَفَةً",
+    "past": "لاعَفَ",
+    "pastP": "لُوعِفَ",
+    "present": "يُلاعِفُ",
+    "presentP": "يُلاعَفُ",
+    "tharf": "مُلاعَفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 3`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "أَلْعِفْ",
+    "faail": "مُلْعِفٌ",
+    "forbid": " لا  تُلْعِفْ",
+    "mafool": "مُلْعَفٌ",
+    "masdr": "إِلْعافًا",
+    "past": "أَلْعَفَ",
+    "pastP": "أُلْعِفَ",
+    "present": "يُلْعِفُ",
+    "presentP": "يُلْعَفُ",
+    "tharf": "مُلْعَفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 4`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "تَلَعَّفْ",
+    "faail": "مُتَلَعِّفٌ",
+    "forbid": " لا  تَتَلَعَّفْ",
+    "mafool": "مُتَلَعَّفٌ",
+    "masdr": "تَلَعُّفًا",
+    "past": "تَلَعَّفَ",
+    "pastP": "تُلُعِّفَ",
+    "present": "يَتَلَعَّفُ",
+    "presentP": "يُتَلَعَّفُ",
+    "tharf": "مُتَلَعَّفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 5`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "تَلاعَفْ",
+    "faail": "مُتَلاعِفٌ",
+    "forbid": " لا  تَتَلاعَفْ",
+    "mafool": "مُتَلاعَفٌ",
+    "masdr": "تَلاعُفًا",
+    "past": "تَلاعَفَ",
+    "pastP": "تُلُوعِفَ",
+    "present": "يَتَلاعَفُ",
+    "presentP": "يُتَلاعَفُ",
+    "tharf": "مُتَلاعَفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 6`] = `
+Object {
+  "hasPassive": false,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِنْلَعِفْ",
+    "faail": "مُنْلَعِفٌ",
+    "forbid": " لا  تَنْلَعِفْ",
+    "mafool": "",
+    "masdr": "اِنْلِعافًا",
+    "past": "اِنْلَعَفَ",
+    "pastP": "",
+    "present": "يَنْلَعِفُ",
+    "presentP": "",
+    "tharf": "مُنْلَعَفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 7`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِلْتَعِفْ",
+    "faail": "مُلْتَعِفٌ",
+    "forbid": " لا  تَلْتَعِفْ",
+    "mafool": "مُلْتَعَفٌ",
+    "masdr": "اِلْتِعافًا",
+    "past": "اِلْتَعَفَ",
+    "pastP": "اُلْتُعِفَ",
+    "present": "يَلْتَعِفُ",
+    "presentP": "يُلْتَعَفُ",
+    "tharf": "مُلْتَعَفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 8`] = `
+Object {
+  "hasPassive": false,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِلْعَفَّ اِلْعَفِّ اِلْعَفِفْ",
+    "faail": "مُلْعَفٌّ",
+    "forbid": " لا  تَلْعَفَّ  لا  تَلْعَفِّ  لا  تَلْعَفِفْ",
+    "mafool": "",
+    "masdr": "اِلْعِفافًا",
+    "past": "اِلْعَفَّ",
+    "pastP": "",
+    "present": "يَلْعَفُّ",
+    "presentP": "",
+    "tharf": "مُلْعَفٌّ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 9`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِسْتَلْعِفْ",
+    "faail": "مُسْتَلْعِفٌ",
+    "forbid": " لا  تَسْتَلْعِفْ",
+    "mafool": "مُسْتَلْعَفٌ",
+    "masdr": "اِسْتِلْعافًا",
+    "past": "اِسْتَلْعَفَ",
+    "pastP": "اُسْتُلْعِفَ",
+    "present": "يَسْتَلْعِفُ",
+    "presentP": "يُسْتَلْعَفُ",
+    "tharf": "مُسْتَلْعَفٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 10`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "وَسِّنْ",
+    "faail": "مُوَسِّنٌ",
+    "forbid": " لا  تُوَسِّنْ",
+    "mafool": "مُوَسَّنٌ",
+    "masdr": "تَوسِينًا",
+    "past": "وَسَّنَ",
+    "pastP": "وُسِّنَ",
+    "present": "يُوَسِّنُ",
+    "presentP": "يُوَسَّنُ",
+    "tharf": "مُوَسَّنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 11`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "واسِنْ",
+    "faail": "مُواسِنٌ",
+    "forbid": " لا  تُواسِنْ",
+    "mafool": "مُواسَنٌ",
+    "masdr": "وِسانًا وَ مُواسَنَةً",
+    "past": "واسَنَ",
+    "pastP": "وُوسِنَ",
+    "present": "يُواسِنُ",
+    "presentP": "يُواسَنُ",
+    "tharf": "مُواسَنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 12`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "أَوْسِنْ",
+    "faail": "مُوْسِنٌ",
+    "forbid": " لا  تُوْسِنْ",
+    "mafool": "مُوْسَنٌ",
+    "masdr": "إِيسانًا",
+    "past": "أَوْسَنَ",
+    "pastP": "أُوْسِنَ",
+    "present": "يُوْسِنُ",
+    "presentP": "يُوْسَنُ",
+    "tharf": "مُوْسَنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 13`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "تَوَسَّنْ",
+    "faail": "مُتَوَسِّنٌ",
+    "forbid": " لا  تَتَوَسَّنْ",
+    "mafool": "مُتَوَسَّنٌ",
+    "masdr": "تَوَسُّنًا",
+    "past": "تَوَسَّنَ",
+    "pastP": "تُوُسِّنَ",
+    "present": "يَتَوَسَّنُ",
+    "presentP": "يُتَوَسَّنُ",
+    "tharf": "مُتَوَسَّنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 14`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "تَواسَنْ",
+    "faail": "مُتَواسِنٌ",
+    "forbid": " لا  تَتَواسَنْ",
+    "mafool": "مُتَواسَنٌ",
+    "masdr": "تَواسُنًا",
+    "past": "تَواسَنَ",
+    "pastP": "تُوُوسِنَ",
+    "present": "يَتَواسَنُ",
+    "presentP": "يُتَواسَنُ",
+    "tharf": "مُتَواسَنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 15`] = `
+Object {
+  "hasPassive": false,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِنْوَسِنْ",
+    "faail": "مُنْوَسِنٌ",
+    "forbid": " لا  تَنْوَسِنْ",
+    "mafool": "",
+    "masdr": "اِنْوِسانًا",
+    "past": "اِنْوَسَنَ",
+    "pastP": "",
+    "present": "يَنْوَسِنُ",
+    "presentP": "",
+    "tharf": "مُنْوَسَنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 16`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِتَّسِنْ",
+    "faail": "مُتَّسِنٌ",
+    "forbid": " لا  تَتَّسِنْ",
+    "mafool": "مُتَّسَنٌ",
+    "masdr": "اِتِّسانًا",
+    "past": "اِتَّسَنَ",
+    "pastP": "اُتُّسِنَ",
+    "present": "يَتَّسِنُ",
+    "presentP": "يُتَّسَنُ",
+    "tharf": "مُتَّسَنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 17`] = `
+Object {
+  "hasPassive": false,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِوْسَنَّ اِوْسَنِّ اِوْسَنِنْ",
+    "faail": "مُوْسَنٌّ",
+    "forbid": " لا  تَوْسَنَّ  لا  تَوْسَنِّ  لا  تَوْسَنِنْ",
+    "mafool": "",
+    "masdr": "اِوْسِنانًا",
+    "past": "اِوْسَنَّ",
+    "pastP": "",
+    "present": "يَوْسَنُّ",
+    "presentP": "",
+    "tharf": "مُوْسَنٌّ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 18`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِسْتَوْسِنْ",
+    "faail": "مُسْتَوْسِنٌ",
+    "forbid": " لا  تَسْتَوْسِنْ",
+    "mafool": "مُسْتَوْسَنٌ",
+    "masdr": "اِستِيسانًا",
+    "past": "اِسْتَوْسَنَ",
+    "pastP": "اُسْتُوْسِنَ",
+    "present": "يَسْتَوْسِنُ",
+    "presentP": "يُسْتَوْسَنُ",
+    "tharf": "مُسْتَوْسَنٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 19`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "نَيِّبْ",
+    "faail": "مُنَيِّبٌ",
+    "forbid": " لا  تُنَيِّبْ",
+    "mafool": "مُنَيَّبٌ",
+    "masdr": "تَنيِيبًا",
+    "past": "نَيَّبَ",
+    "pastP": "نُيِّبَ",
+    "present": "يُنَيِّبُ",
+    "presentP": "يُنَيَّبُ",
+    "tharf": "مُنَيَّبٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 20`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "نايِبْ",
+    "faail": "مُنايِبٌ",
+    "forbid": " لا  تُنايِبْ",
+    "mafool": "مُنايَبٌ",
+    "masdr": "نِيابًا وَ مُنايَبَةً",
+    "past": "نايَبَ",
+    "pastP": "نُويِبَ",
+    "present": "يُنايِبُ",
+    "presentP": "يُنايَبُ",
+    "tharf": "مُنايَبٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 21`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "أَنِبْ",
+    "faail": "مُنِيبٌ",
+    "forbid": " لا  تُنِبْ",
+    "mafool": "مُنَابٌ",
+    "masdr": "إِنَابَةً",
+    "past": "أَنَابَ",
+    "pastP": "أُنِيبَ",
+    "present": "يُنِيبُ",
+    "presentP": "يُنَابُ",
+    "tharf": "مُنَابٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 22`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "تَنَيَّبْ",
+    "faail": "مُتَنَيِّبٌ",
+    "forbid": " لا  تَتَنَيَّبْ",
+    "mafool": "مُتَنَيَّبٌ",
+    "masdr": "تَنَيُّبًا",
+    "past": "تَنَيَّبَ",
+    "pastP": "تُنُيِّبَ",
+    "present": "يَتَنَيَّبُ",
+    "presentP": "يُتَنَيَّبُ",
+    "tharf": "مُتَنَيَّبٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 23`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "تَنايَبْ",
+    "faail": "مُتَنايِبٌ",
+    "forbid": " لا  تَتَنايَبْ",
+    "mafool": "مُتَنايَبٌ",
+    "masdr": "تَنايُبًا",
+    "past": "تَنايَبَ",
+    "pastP": "تُنُويِبَ",
+    "present": "يَتَنايَبُ",
+    "presentP": "يُتَنايَبُ",
+    "tharf": "مُتَنايَبٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 24`] = `
+Object {
+  "hasPassive": false,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِنْنَبْ",
+    "faail": "مُنْنَابٌ",
+    "forbid": " لا  تَنْنَبْ",
+    "mafool": "",
+    "masdr": "اِنْنِيابًا",
+    "past": "اِنْنَابَ",
+    "pastP": "",
+    "present": "يَنْنَابُ",
+    "presentP": "",
+    "tharf": "مُنْنَابٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 25`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِنْتَبْ",
+    "faail": "مُنْتَابٌ",
+    "forbid": " لا  تَنْتَبْ",
+    "mafool": "مُنْتَابٌ",
+    "masdr": "اِنْتِيَابًا",
+    "past": "اِنْتَابَ",
+    "pastP": "اُنْتِيبَ",
+    "present": "يَنْتَابُ",
+    "presentP": "يُنْتَابُ",
+    "tharf": "مُنْتَابٌ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 26`] = `
+Object {
+  "hasPassive": false,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِنْيَبَّ اِنْيَبِّ اِنْيَبِبْ",
+    "faail": "مُنْيَبٌّ",
+    "forbid": " لا  تَنْيَبَّ  لا  تَنْيَبِّ  لا  تَنْيَبِبْ",
+    "mafool": "",
+    "masdr": "اِنْيِبابًا",
+    "past": "اِنْيَبَّ",
+    "pastP": "",
+    "present": "يَنْيَبُّ",
+    "presentP": "",
+    "tharf": "مُنْيَبٌّ",
+  },
+}
+`;
+
+exports[`makes conjugations correctly 27`] = `
+Object {
+  "hasPassive": true,
+  "withColor": undefined,
+  "word": Object {
+    "command": "اِسْتَنِبْ",
+    "faail": "مُسْتَنِيبٌ",
+    "forbid": " لا  تَسْتَنِبْ",
+    "mafool": "مُسْتَنَابٌ",
+    "masdr": "اِسْتِنَابَةً",
+    "past": "اِسْتَنَابَ",
+    "pastP": "اُسْتُنِيبَ",
+    "present": "يَسْتَنِيبُ",
+    "presentP": "يُسْتَنَابُ",
+    "tharf": "مُسْتَنَابٌ",
+  },
+}
+`;
