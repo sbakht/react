@@ -15,12 +15,13 @@
     padding: 6px;
     text-align: center;
     cursor:pointer;
+    font-size: 40px;
 }
 
-.choice:hover {
+/*.choice:hover {
   font-size: 16px;
 }
-
+*/
 .choice input[type="radio"] {
   opacity: 0;
 }
