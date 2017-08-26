@@ -23,7 +23,7 @@ import {QuestionBuilder, TableQuestion} from './questionBuilder';
 // });
 // let questions = out.maadhiQ(['past'], 'type1');
 var options = { letters : "فعل", group : "maadhi", type : "type1"}
-var questions = Array(5).fill(1).map(function() {
+var questions = Array(100).fill(1).map(function() {
   options.choose = _.random(0, 12);
   var table = new TableQuestion(options);
   table.build(options);

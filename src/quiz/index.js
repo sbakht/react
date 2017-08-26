@@ -30,6 +30,15 @@ class Quiz extends React.Component {
   showResults() {
     this.setState({ showResults: true });
   }
+  handleKeyPress(e) {
+    if(e.keyCode === 13) {
+      this.nextQuestion();
+    }
+  }
+  componentWillMount() {
+    //fix this to use form
+    document.addEventListener("keydown", this.handleKeyPress.bind(this))
+  }
   render() {
     return (
       <div className="quiz">
