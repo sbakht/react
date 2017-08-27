@@ -44,8 +44,8 @@ class Table {
   }
 
   mappings(firstVowels) {
-    firstVowels = firstVowels || Dictionary.verb.simple.maps[this.type].beginners;
-    var mapping = Dictionary.verb.simple.maps[this.type].enders;
+    firstVowels = firstVowels || Dictionary.verb.simple.maps[this.type].maadhi;
+    var mapping = Dictionary.verb.simple.maps.enders;
 
     var completeMapping = mapping.map(m => firstVowels.concat(m));
     return completeMapping.map(m => m.map(replacer));

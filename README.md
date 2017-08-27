@@ -8,3 +8,5 @@ write tests for practice
 write tests for game
 tabs to select different modes/games
 active/passive simple mudhari all types
+keyboard controls 1-4 and enter
+timer

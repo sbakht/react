@@ -32,12 +32,20 @@ class Quiz extends React.Component {
   }
   handleKeyPress(e) {
     if(e.keyCode === 13) {
-      this.nextQuestion();
+      if(this.state.index < this.props.questions.length - 1) {
+        this.nextQuestion();
+      }else if(!this.state.showResults){
+        this.showResults();
+      }
     }
   }
   componentWillMount() {
     //fix this to use form
     document.addEventListener("keydown", this.handleKeyPress.bind(this))
+  }
+  componentWillUnmount() {
+    //fix this to use form
+    document.removeEventListener("keydown", this.handleKeyPress.bind(this))
   }
   render() {
     return (
