@@ -90,6 +90,34 @@ Object {
       "val": "فَعَلَ",
     },
   ],
-  "text": "Which is he",
+  "text": "maadhi he",
+}
+`;
+
+exports[`build simple mudari table question 1`] = `
+Object {
+  "choices": Array [
+    Object {
+      "isWrong": true,
+      "text": "يَفْعُلَانِ",
+      "val": "يَفْعُلَانِ",
+    },
+    Object {
+      "isWrong": true,
+      "text": "يَفْعُلُونَ",
+      "val": "يَفْعُلُونَ",
+    },
+    Object {
+      "isWrong": true,
+      "text": "تَفْعُلُ",
+      "val": "تَفْعُلُ",
+    },
+    Object {
+      "isCorrect": true,
+      "text": "يَفْعُلُ",
+      "val": "يَفْعُلُ",
+    },
+  ],
+  "text": "mudari he",
 }
 `;

@@ -10,3 +10,10 @@ test('builds simple maadhi table', () => {
   expect(table.words.passive).toMatchSnapshot();
 });
 
+test('builds simple mudari table', () => {
+  var options = { letters : "فعل", group : "mudari", type : "type1"}
+  var table = new Table(options);
+  expect(table.words.active).toMatchSnapshot();
+  expect(table.words.passive).toMatchSnapshot();
+});
+

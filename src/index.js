@@ -22,7 +22,14 @@ import {QuestionBuilder, TableQuestion} from './questionBuilder';
 //   numQuestions: 3,
 // });
 // let questions = out.maadhiQ(['past'], 'type1');
-var options = { letters : "فعل", group : "maadhi", type : "type1"}
+
+//thulathi mujarrad
+//nasara, daraba, sameya, fataha, karoma, haseba
+
+//thualthi mazeedfee
+
+// var options = { letters : "فعل", group : "maadhi", type : "type1"}
+var options = { letters : "سمع", group : "mudari", type : "type3"}
 var questions = Array(100).fill(1).map(function() {
   options.choose = _.random(0, 12);
   var table = new TableQuestion(options);

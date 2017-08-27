@@ -25,7 +25,21 @@ test('Link changes the class when hovered', () => {
 
 test('build simple maadhi table question', () => {
   _.sample = jest.fn();
+  //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "maadhi", type : "type1", choose : 0}
+  var table = new TableQuestion(options);
+  _.sample.mockReturnValueOnce([table.table.words.active[1]])
+          .mockReturnValueOnce([table.table.words.active[2]])
+          .mockReturnValueOnce([table.table.words.active[3]])
+  table.build(options);
+  expect(table.question).toMatchSnapshot(); 
+});
+
+
+test('build simple mudari table question', () => {
+  _.sample = jest.fn();
+  //TODO: allow choose to use strings?
+  var options = { letters : "فعل", group : "mudari", type : "type1", choose : 0}
   var table = new TableQuestion(options);
   _.sample.mockReturnValueOnce([table.table.words.active[1]])
           .mockReturnValueOnce([table.table.words.active[2]])

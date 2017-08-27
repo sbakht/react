@@ -97,6 +97,7 @@ var textMap = [
 class TableQuestion {
   constructor(options) {
     this.choose = options.choose;
+    this.group = options.group;
     this.table = new Table(options);
   }
 
@@ -113,7 +114,7 @@ class TableQuestion {
   }
 
   getText() {
-    return `Which is ${textMap[this.choose]}`;
+    return `${this.group} ${textMap[this.choose]}`;
   }
 
   getCorrect() {

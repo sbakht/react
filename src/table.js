@@ -2,6 +2,7 @@ import _ from 'underscore';
 import Dictionary from './util/dictionary';
 
 var endings = Dictionary.verb.simple.endings;
+var beginnings = Dictionary.verb.simple.beginnings;
 var d = 'ُ';
 var f = 'َ';
 var k = 'ِ';
@@ -33,6 +34,7 @@ class Table {
   constructor(options) {
     this.words = {};
     this.type = options.type;
+    this.group = options.group;
     if(options.letters) {
       this.build(options.letters, options.type);
     }
@@ -43,9 +45,13 @@ class Table {
     this.buildPassive(str, type)
   }
 
-  mappings(firstVowels) {
-    firstVowels = firstVowels || Dictionary.verb.simple.maps[this.type].maadhi;
-    var mapping = Dictionary.verb.simple.maps.enders;
+  mappings(isPassive) {
+    if(isPassive) {
+      var firstVowels = Dictionary.verb.simple.maps.passive[this.group];
+    }else{
+      var firstVowels = Dictionary.verb.simple.maps[this.type][this.group];
+    }
+    var mapping = Dictionary.verb.simple.maps.enders[this.group];
 
     var completeMapping = mapping.map(m => firstVowels.concat(m));
     return completeMapping.map(m => m.map(replacer));
@@ -55,24 +61,24 @@ class Table {
     var words = [];
     var vowels = this.mappings();
 
-    endings.map(function(ending, i) {
-      var word = str + ending;
+    endings[this.group].map(function(ending, i) {
+      var word =  beginnings[this.group][i] + str + ending;
       var useVowels = vowels[i] || ['','',''];
       words.push(_.flatten(_.zip(word.split(''), useVowels)).join(''));
-    });
+    }, this);
 
     this.words.active = words;
   }
 
   buildPassive(str, type) {
     var words = [];
-    var vowels = this.mappings([1,3])
+    var vowels = this.mappings(true)
 
-    endings.map(function(ending, i) {
-      var word = str + ending;
+    endings[this.group].map(function(ending, i) {
+      var word = beginnings[this.group][i] + str + ending;
       var useVowels = vowels[i] || ['','',''];
       words.push(_.flatten(_.zip(word.split(''), useVowels)).join(''));
-    });
+    }, this);
 
     this.words.passive = words;
   }
