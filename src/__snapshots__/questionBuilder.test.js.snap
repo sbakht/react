@@ -66,7 +66,7 @@ Object {
 }
 `;
 
-exports[`build simple maadhi table question 1`] = `
+exports[`build simple active maadhi table question 1`] = `
 Object {
   "choices": Array [
     Object {
@@ -94,7 +94,7 @@ Object {
 }
 `;
 
-exports[`build simple mudari table question 1`] = `
+exports[`build simple active mudari table question 1`] = `
 Object {
   "choices": Array [
     Object {

@@ -23,7 +23,7 @@ test('Link changes the class when hovered', () => {
 });
 
 
-test('build simple maadhi table question', () => {
+test('build simple active maadhi table question', () => {
   _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "maadhi", type : "type1", choose : 0}
@@ -36,7 +36,7 @@ test('build simple maadhi table question', () => {
 });
 
 
-test('build simple mudari table question', () => {
+test('build simple active mudari table question', () => {
   _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "mudari", type : "type1", choose : 0}
