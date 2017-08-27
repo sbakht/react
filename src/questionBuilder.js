@@ -98,6 +98,10 @@ class TableQuestion {
   constructor(options) {
     this.choose = options.choose;
     this.group = options.group;
+    this.voice = options.voice || "active";
+    this.include = options.include || ['active', 'passive'];
+    this.exclude = options.exclude || [];
+    this.include = _.without(this.include, ...this.exclude);
     this.table = new Table(options);
   }
 
@@ -118,8 +122,8 @@ class TableQuestion {
   }
 
   getCorrect() {
-    var item = this.table.words.active[this.choose];
-    this.table.words.active = _.without(this.table.words.active, item);
+    var item = this.table.words[this.voice][this.choose];
+    this.table.words[this.voice] = _.without(this.table.words[this.voice], item);
     return buildChoice(item, true);
   }
 
@@ -131,11 +135,13 @@ class TableQuestion {
   }
 }
 
+//need to test this
 function sampleR(count) {
-  var items = _.sample(this.table.words.active, count);
-  this.table.words.active = _.without(this.table.words.active, ...items)
+  var voice = this.include[_.random(0, this.include.length-1)]
+  var items = _.sample(this.table.words[voice], count);
+  this.table.words[voice] = _.without(this.table.words[voice], ...items)
   return items[0];
 }
 
-export { QuestionBuilder, MaadhiQuestion, TableQuestion};
+export { QuestionBuilder, MaadhiQuestion, TableQuestion };
 

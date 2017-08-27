@@ -66,6 +66,34 @@ Object {
 }
 `;
 
+exports[`build simple active maadhi table question - allows active/passive as wrong choices 1`] = `
+Object {
+  "choices": Array [
+    Object {
+      "isWrong": true,
+      "text": "فَعَلاَ",
+      "val": "فَعَلاَ",
+    },
+    Object {
+      "isWrong": true,
+      "text": "فَعَلُوا",
+      "val": "فَعَلُوا",
+    },
+    Object {
+      "isWrong": true,
+      "text": "فَعَلَتْ",
+      "val": "فَعَلَتْ",
+    },
+    Object {
+      "isCorrect": true,
+      "text": "فَعَلَ",
+      "val": "فَعَلَ",
+    },
+  ],
+  "text": "maadhi he",
+}
+`;
+
 exports[`build simple active maadhi table question 1`] = `
 Object {
   "choices": Array [
@@ -116,6 +144,62 @@ Object {
       "isCorrect": true,
       "text": "يَفْعُلُ",
       "val": "يَفْعُلُ",
+    },
+  ],
+  "text": "mudari he",
+}
+`;
+
+exports[`build simple passive maadhi table question 1`] = `
+Object {
+  "choices": Array [
+    Object {
+      "isWrong": true,
+      "text": "فُعِلاَ",
+      "val": "فُعِلاَ",
+    },
+    Object {
+      "isWrong": true,
+      "text": "فُعِلُوا",
+      "val": "فُعِلُوا",
+    },
+    Object {
+      "isWrong": true,
+      "text": "فُعِلَتْ",
+      "val": "فُعِلَتْ",
+    },
+    Object {
+      "isCorrect": true,
+      "text": "فُعِلَ",
+      "val": "فُعِلَ",
+    },
+  ],
+  "text": "maadhi he",
+}
+`;
+
+exports[`build simple passive mudari table question 1`] = `
+Object {
+  "choices": Array [
+    Object {
+      "isWrong": true,
+      "text": "يُفْعَلَانِ",
+      "val": "يُفْعَلَانِ",
+    },
+    Object {
+      "isWrong": true,
+      "text": "يُفْعَلُونَ",
+      "val": "يُفْعَلُونَ",
+    },
+    Object {
+      "isWrong": true,
+      "text": "تُفْعَلُ",
+      "val": "تُفْعَلُ",
+    },
+    Object {
+      "isCorrect": true,
+      "text": "يُفْعَلُ",
+      "val": "يُفْعَلُ",
     },
   ],
   "text": "mudari he",
