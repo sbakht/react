@@ -15,6 +15,7 @@ given word, select type
 fix linting errors
 sample mocking in questionBuilder makes tests bad
 testing include/exclude behavior
+seperate each group of sarf types and implement pick(num, doRemove) for each, can choose to either delete choosen from source array or not
 
 
 DONE:
