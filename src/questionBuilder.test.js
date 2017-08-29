@@ -1,6 +1,6 @@
 // Link.react-test.js
 import React from 'react';
-import {QuestionBuilder, MaadhiQuestion, TableQuestion} from './QuestionBuilder';
+import {QuestionBuilder, MaadhiQuestion, TableQuestion, Picker} from './QuestionBuilder';
 import Util from './util';
 import _ from 'underscore';
 
@@ -24,13 +24,15 @@ test('Link changes the class when hovered', () => {
 
 
 test('build simple active maadhi table question', () => {
-  _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "maadhi", type : "type1", choose : 0}
-  var table = new TableQuestion(options);
-  _.sample.mockReturnValueOnce([table.table.words.active[1]])
-          .mockReturnValueOnce([table.table.words.active[2]])
-          .mockReturnValueOnce([table.table.words.active[3]])
+     var Picker = {
+        i : 0,
+        call : function() {
+            return this.i++;
+        }
+     }
+  var table = new TableQuestion(options, Picker);
   table.build(options);
   expect(table.question).toMatchSnapshot(); 
 });
@@ -39,10 +41,13 @@ test('build simple passive maadhi table question', () => {
   _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "maadhi", type : "type1", choose : 0, voice: "passive"}
-  var table = new TableQuestion(options);
-  _.sample.mockReturnValueOnce([table.table.words.passive[1]])
-          .mockReturnValueOnce([table.table.words.passive[2]])
-          .mockReturnValueOnce([table.table.words.passive[3]])
+     var Picker = {
+        i : 0,
+        call : function() {
+            return this.i++;
+        }
+     }
+  var table = new TableQuestion(options, Picker);
   table.build(options);
   expect(table.question).toMatchSnapshot(); 
 });
@@ -52,10 +57,13 @@ test('build simple active mudari table question', () => {
   _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "mudari", type : "type1", choose : 0}
-  var table = new TableQuestion(options);
-  _.sample.mockReturnValueOnce([table.table.words.active[1]])
-          .mockReturnValueOnce([table.table.words.active[2]])
-          .mockReturnValueOnce([table.table.words.active[3]])
+     var Picker = {
+        i : 0,
+        call : function() {
+            return this.i++;
+        }
+     }
+  var table = new TableQuestion(options, Picker);
   table.build(options);
   expect(table.question).toMatchSnapshot(); 
 });
@@ -64,10 +72,13 @@ test('build simple passive mudari table question', () => {
   _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "mudari", type : "type1", choose : 0, voice: "passive"}
-  var table = new TableQuestion(options);
-  _.sample.mockReturnValueOnce([table.table.words.passive[1]])
-          .mockReturnValueOnce([table.table.words.passive[2]])
-          .mockReturnValueOnce([table.table.words.passive[3]])
+     var Picker = {
+        i : 0,
+        call : function() {
+            return this.i++;
+        }
+     }
+  var table = new TableQuestion(options, Picker);
   table.build(options);
   expect(table.question).toMatchSnapshot(); 
 });
@@ -76,21 +87,22 @@ test('build simple active maadhi table question - allows active/passive as wrong
   _.sample = jest.fn();
   //TODO: allow choose to use strings?
   var options = { letters : "فعل", group : "maadhi", type : "type1", choose : 0, include : ['active','passive']}
-  var table = new TableQuestion(options);
-  _.sample.mockReturnValueOnce([table.table.words.active[1]])
-          .mockReturnValueOnce([table.table.words.active[2]])
-          .mockReturnValueOnce([table.table.words.active[3]])
+     var Picker = {
+        i : 0,
+        call : function() {
+            return this.i++;
+        }
+     }
+  var table = new TableQuestion(options, Picker);
   table.build(options);
   expect(table.question).toMatchSnapshot(); 
 });
 
 //need to account for repeat
 test('sampleR', () => {
-   _.random = jest.fn();
   var options = { letters : "فعل", group : "maadhi", type : "type1", voice: "active"}
-  var table = new TableQuestion(options);
-  _.random.mockReturnValueOnce(1)
-          .mockReturnValueOnce(2)
+  var picker = new Picker();
+  var table = new TableQuestion(options, '', picker);
   expect(table.table.words.active.length).toBe(14)
   table.sampleR('active', 1);
   expect(table.table.words.active.length).toBe(13)
@@ -99,10 +111,14 @@ test('sampleR', () => {
 });
 
 test('sampleR repeat', () => {
-   _.random = jest.fn();
   var options = { letters : "فعل", group : "maadhi", type : "type1", voice: "active"}
-  var table = new TableQuestion(options);
-  _.random.mockReturnValueOnce(7)
+     var Picker = {
+        i : 7,
+        call : function() {
+            return this.i++;
+        }
+     }
+  var table = new TableQuestion(options, Picker);
   expect(table.table.words.active.length).toBe(14)
   table.sampleR('active', 1);
   expect(table.table.words.active.length).toBe(12)

@@ -95,13 +95,15 @@ var textMap = [
 ];
 
 class TableQuestion {
-  constructor(options) {
+  constructor(options, Picker, PickerClass) {
     this.choose = options.choose;
     this.group = options.group;
     this.voice = options.voice || "active";
     this.include = options.include || ['active', 'passive'];
     this.exclude = options.exclude || [];
     this.include = _.without(this.include, ...this.exclude);
+    this.Picker = Picker;
+    this.pickerClass = PickerClass || false;
     this.table = new Table(options);
   }
 
@@ -138,14 +140,22 @@ class TableQuestion {
   //need to test this
   sampleR(voice, count) {
     var word = this.pick(count);
-    this.table.words[voice] = this.pop(word);
+    //this.table.words[voice] = this.pop(word);
     return word;
   }
   pick(count) {
     var table = this.table.words[this.voice];
     var i = _.random(0, this.voice.length - 1);
+    if(this.pickerClass) {
+        this.pickerClass.init(this.table.words.active);
+        this.pickerClass.call();
+        this.pickerClass.pick();
+        return this.pickerClass.picked;
+    }else{
+        var i = this.Picker.call();
+    }
     return table[i];
-    // return _.sample(table, count)
+    return _.sample(table, count)[0]
   }
   pop(word) {
     var table = this.table.words[this.voice];
@@ -153,6 +163,19 @@ class TableQuestion {
   }
 }
 
+class Picker {
+   init(active) {
+     this.words = active;
+     this.i = -1;
+   }
+   call() {
+    this.i++; 
+   }
+    pick() {
+        
+    }
+}
 
-export { QuestionBuilder, MaadhiQuestion, TableQuestion };
+
+export { QuestionBuilder, MaadhiQuestion, TableQuestion, Picker };
 
