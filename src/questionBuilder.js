@@ -129,19 +129,30 @@ class TableQuestion {
 
   getWrong() {
     return Array(3).fill(1).map(function() {
-          var word = sampleR.call(this, 1);
+          var voice = this.include[_.random(0, this.include.length-1)]
+          var word = this.sampleR(voice, 1);
           return buildChoice(word, false);
         }, this);
   }
+
+  //need to test this
+  sampleR(voice, count) {
+    var word = this.pick(count);
+    this.table.words[voice] = this.pop(word);
+    return word;
+  }
+  pick(count) {
+    var table = this.table.words[this.voice];
+    var i = _.random(0, this.voice.length - 1);
+    return table[i];
+    // return _.sample(table, count)
+  }
+  pop(word) {
+    var table = this.table.words[this.voice];
+    return _.without(table, word)
+  }
 }
 
-//need to test this
-function sampleR(count) {
-  var voice = this.include[_.random(0, this.include.length-1)]
-  var items = _.sample(this.table.words[voice], count);
-  this.table.words[voice] = _.without(this.table.words[voice], ...items)
-  return items[0];
-}
 
 export { QuestionBuilder, MaadhiQuestion, TableQuestion };
 

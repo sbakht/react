@@ -83,3 +83,27 @@ test('build simple active maadhi table question - allows active/passive as wrong
   table.build(options);
   expect(table.question).toMatchSnapshot(); 
 });
+
+//need to account for repeat
+test('sampleR', () => {
+   _.random = jest.fn();
+  var options = { letters : "فعل", group : "maadhi", type : "type1", voice: "active"}
+  var table = new TableQuestion(options);
+  _.random.mockReturnValueOnce(1)
+          .mockReturnValueOnce(2)
+  expect(table.table.words.active.length).toBe(14)
+  table.sampleR('active', 1);
+  expect(table.table.words.active.length).toBe(13)
+  table.sampleR('active', 1);
+  expect(table.table.words.active.length).toBe(12)
+});
+
+test('sampleR repeat', () => {
+   _.random = jest.fn();
+  var options = { letters : "فعل", group : "maadhi", type : "type1", voice: "active"}
+  var table = new TableQuestion(options);
+  _.random.mockReturnValueOnce(7)
+  expect(table.table.words.active.length).toBe(14)
+  table.sampleR('active', 1);
+  expect(table.table.words.active.length).toBe(12)
+});
