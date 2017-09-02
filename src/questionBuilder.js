@@ -100,7 +100,7 @@ class TableQuestion {
     this.choose = options.choose;
     this.group = options.group;
     this.voice = options.voice || "active";
-    this.include = options.include || ['active', 'passive'];
+    this.include = options.include || [];
     this.exclude = options.exclude || [];
     this.include = _.without(this.include, ...this.exclude);
     this.table = new Table(options).words;
@@ -125,21 +125,22 @@ class TableQuestion {
   }
 
   getCorrect() {
-    var table = this.table[this.voice];
+    var voice = this.include[_.random(0, this.include.length-1)] || this.voice;
+    var table = this.table[voice];
     var i = this.pickerClass.pickCorrect();
     return buildChoice(table[i], true);
   }
 
   getWrong() {
     return Array(3).fill(1).map(function() {
-          var voice = this.include[_.random(0, this.include.length-1)]
+          var voice = this.include[_.random(0, this.include.length-1)] || this.voice;
           var word = this.sampleR(voice, 1);
           return buildChoice(word, false);
         }, this);
   }
 
   sampleR(voice, count) {
-    var table = this.table[this.voice];
+    var table = this.table[voice];
     var i = this.pickerClass.pickWrong();
     return table[i];
   }
