@@ -95,16 +95,16 @@ var textMap = [
 ];
 
 class TableQuestion {
-  constructor(options, Picker, PickerClass) {
+  constructor(options, pickerClass) {
     this.choose = options.choose;
     this.group = options.group;
     this.voice = options.voice || "active";
     this.include = options.include || ['active', 'passive'];
     this.exclude = options.exclude || [];
     this.include = _.without(this.include, ...this.exclude);
-    this.Picker = Picker;
-    this.pickerClass = PickerClass || false;
     this.table = new Table(options);
+
+    this.pickerClass = pickerClass || new Picker();
   }
 
   build(options) {
@@ -124,9 +124,9 @@ class TableQuestion {
   }
 
   getCorrect() {
-    var item = this.table.words[this.voice][this.choose];
-    this.table.words[this.voice] = _.without(this.table.words[this.voice], item);
-    return buildChoice(item, true);
+    var table = this.table.words[this.voice];
+    var i = this.pickerClass.pickCorrect();
+    return buildChoice(table[i], true);
   }
 
   getWrong() {
@@ -137,43 +137,66 @@ class TableQuestion {
         }, this);
   }
 
-  //need to test this
   sampleR(voice, count) {
-    var word = this.pick(count);
-    //this.table.words[voice] = this.pop(word);
-    return word;
-  }
-  pick(count) {
     var table = this.table.words[this.voice];
     var i = _.random(0, this.voice.length - 1);
-    if(this.pickerClass) {
-        this.pickerClass.init(this.table.words.active);
-        this.pickerClass.call();
-        this.pickerClass.pick();
-        return this.pickerClass.picked;
-    }else{
-        var i = this.Picker.call();
-    }
+    var i = this.pickerClass.pickWrong();
     return table[i];
-    return _.sample(table, count)[0]
-  }
-  pop(word) {
-    var table = this.table.words[this.voice];
-    return _.without(table, word)
   }
 }
 
 class Picker {
-   init(active) {
-     this.words = active;
-     this.i = -1;
-   }
-   call() {
-    this.i++; 
-   }
-    pick() {
-        
+  constructor({correct, wrong} = {}) {
+    this.i = -1;
+    this.correct = correct;
+    this.wrongs = wrong || [];
+    this.found = wrong || [];
+
+    if(this.wrongs.indexOf(this.correct) > -1) {
+      throw new Error('Can not have same correct and wrong index');
     }
+  }
+  call() {
+    this.i++; 
+    return this.i;
+  }
+  pickCorrect(random) {
+    if(typeof this.correct === "number") {
+      return this.correct; 
+    }
+
+    if(random) {
+      var i = _.sample()
+      while(this.found.indexOf(i) > -1) {
+        i = _.sample();
+      }
+      this.found.push(i);
+      this.correct = i;
+      return i;
+    } 
+
+    return this.call();
+  }
+  pickWrong(random) {
+    if(this.wrongs.length) {
+      return this.wrongs.shift();
+    }
+
+    if(random) {
+      if(this.found.length === 14) {
+        throw new Error('Out of unique indexes');
+      } 
+
+      var i = _.sample();
+      while(this.found.indexOf(i) > -1) {
+        i = _.sample();
+      }
+      this.found.push(i);
+      return i;
+    } 
+
+    return this.call();
+  }
 }
 
 
