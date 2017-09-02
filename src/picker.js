@@ -15,47 +15,75 @@ class Picker {
       throw new Error('Can not have duplicate wrong index');
     }
   }
-  call() {
-    this.i++; 
-    return this.i;
-  }
-  pickCorrect(random) {
+  pickCorrect() {
     if(typeof this.correct === "number") {
       return this.correct; 
     }
 
-    if(random) {
-      var i = _.sample()
-      while(this.found.indexOf(i) > -1) {
-        i = _.sample();
-      }
-      this.found.push(i);
-      this.correct = i;
-      return i;
-    } 
-
-    return this.call();
+    var i = _.sample()
+    while(this.found.indexOf(i) > -1) {
+      i = _.sample();
+    }
+    this.found.push(i);
+    this.correct = i;
+    return i;
   }
-  pickWrong(random) {
+  pickWrong() {
     if(this.wrongs.length) {
       return this.wrongs.shift();
     }
 
-    if(random) {
-      if(this.found.length === 14) {
-        throw new Error('Out of unique indexes');
-      } 
-
-      var i = _.sample();
-      while(this.found.indexOf(i) > -1) {
-        i = _.sample();
-      }
-      this.found.push(i);
-      return i;
+    if(this.found.length === 14) {
+      throw new Error('Out of unique indexes');
     } 
 
-    return this.call();
+    var i = _.sample();
+    while(this.found.indexOf(i) > -1) {
+      i = _.sample();
+    }
+    this.found.push(i);
+    this.pushDuplicates(i);
+    return i;
+  }
+  pushDuplicates() {
   }
 }
 
-export { Picker };
+class MaadhiPicker extends Picker {
+  constructor(options) {
+    super(options);
+  }
+
+  pushDuplicates(i) {
+    if(i === 7) {
+      this.found.push(10);
+    }else if(i === 10) {
+      this.found.push(7);
+    }
+  }
+}
+
+class MudariPicker extends Picker {
+  constructor(options) {
+    super(options);
+  }
+
+  pushDuplicates(i) {
+    if(i === 3) {
+      this.found.push(6);
+    }else if(i === 6) {
+      this.found.push(3);
+    }else if(i == 4) {
+      this.found.push(7);
+      this.found.push(10);
+    }else if(i == 7) {
+      this.found.push(4);
+      this.found.push(10);
+    }else if(i == 10) {
+      this.found.push(4);
+      this.found.push(7);
+    }
+  }
+}
+
+export { Picker, MaadhiPicker, MudariPicker };

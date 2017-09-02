@@ -76,6 +76,3 @@ describe('Builds question', () => {
     expect(table.question).toMatchSnapshot(); 
   });
 })
-
-
-//TODO: Include/exclude not working
