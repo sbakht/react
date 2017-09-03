@@ -1,11 +1,12 @@
 import _ from 'underscore';
 
 class Picker {
-  constructor({correct, wrong} = {}) {
+  constructor({correct, wrong, chooseFrom} = {}) {
     this.i = -1;
     this.correct = correct;
     this.wrongs = wrong || [];
     this.found = wrong || [];
+    this.chooseFrom = chooseFrom || Array.apply(null, {length: 14}).map(Number.call, Number);
 
     if(this.wrongs.indexOf(this.correct) > -1) {
       throw new Error('Can not have same correct and wrong index');
@@ -20,10 +21,10 @@ class Picker {
       return this.correct; 
     }
 
-    var i = _.sample()
-    while(this.found.indexOf(i) > -1) {
-      i = _.sample();
-    }
+    do {
+      var i = _.sample(this.chooseFrom, 1)[0];
+    } while(this.found.indexOf(i) > -1);
+
     this.found.push(i);
     this.correct = i;
     return i;
@@ -36,11 +37,11 @@ class Picker {
     if(this.found.length === 14) {
       throw new Error('Out of unique indexes');
     } 
+    
+    do {
+      var i = _.sample(this.chooseFrom, 1)[0];
+    } while(this.found.indexOf(i) > -1);
 
-    var i = _.sample();
-    while(this.found.indexOf(i) > -1) {
-      i = _.sample();
-    }
     this.found.push(i);
     this.pushDuplicates(i);
     return i;
