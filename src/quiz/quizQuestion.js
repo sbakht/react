@@ -24,7 +24,7 @@ const QuizQuestion = (props) => {
       {question.choices.map((choice, i) => {
         const selected = isSelected(choice);
         return (
-          <Choice isSelected={selected} choice={choice} onClick={onAnswer} key={i} />
+          <Choice isSelected={selected} choice={choice} onClick={onAnswer} ith={i+1} key={i} />
         );
       })}
       <AnswerMessage answer={answer} />

@@ -33,6 +33,16 @@ test('choice text', () => {
   expect(component.text()).toBe('choice#1');
 });
 
+test('choice shows number index', () => {
+  const choice = { text: 'choice#1' };
+  const component = shallow(
+    <Choice choice={choice} ith={1}u />,
+  );
+
+  expect(toJSON(component)).toMatchSnapshot();
+  expect(component.text()).toBe('1.choice#1');
+});
+
 test('calls parent on choice select with choice', () => {
   const fn = jest.fn();
   const choice = { text: 'choice#1' };

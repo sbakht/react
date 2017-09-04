@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`choice shows number index 1`] = `
+<label
+  className="choice"
+>
+  <input
+    name="choices"
+    onClick={[Function]}
+    type="radio"
+  />
+  <span
+    className="number"
+  >
+    1
+    .
+  </span>
+  choice#1
+</label>
+`;
+
 exports[`choice text 1`] = `
 <label
   className="choice"

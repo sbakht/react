@@ -5,8 +5,7 @@ config based include/exclude choice parameters
 write tests for practice
 write tests for game
 tabs to select different modes/games
-keyboard controls 1-4 and enter
-  switch to form input
+switch to form input
 timer
 map names (third person masculine plural) to array of data
 input roots and type to generate questions in ui

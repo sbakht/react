@@ -16,6 +16,7 @@ exports[`render after answer 1`] = `
       }
     }
     isSelected={true}
+    ith={1}
     onClick={[Function]}
   />
   <Choice
@@ -27,6 +28,7 @@ exports[`render after answer 1`] = `
       }
     }
     isSelected={false}
+    ith={2}
     onClick={[Function]}
   />
   <Choice
@@ -38,6 +40,7 @@ exports[`render after answer 1`] = `
       }
     }
     isSelected={false}
+    ith={3}
     onClick={[Function]}
   />
   <Choice
@@ -49,6 +52,7 @@ exports[`render after answer 1`] = `
       }
     }
     isSelected={false}
+    ith={4}
     onClick={[Function]}
   />
   <AnswerMessage
@@ -77,6 +81,7 @@ exports[`render before answer 1`] = `
       }
     }
     isSelected={false}
+    ith={1}
     onClick={[Function]}
   />
   <Choice
@@ -88,6 +93,7 @@ exports[`render before answer 1`] = `
       }
     }
     isSelected={false}
+    ith={2}
     onClick={[Function]}
   />
   <Choice
@@ -99,6 +105,7 @@ exports[`render before answer 1`] = `
       }
     }
     isSelected={false}
+    ith={3}
     onClick={[Function]}
   />
   <Choice
@@ -110,6 +117,7 @@ exports[`render before answer 1`] = `
       }
     }
     isSelected={false}
+    ith={4}
     onClick={[Function]}
   />
   <AnswerMessage

@@ -1,30 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Choice = (props) => {
-  const onAnswer = () => {
-    onClick(choice);
-  };
+class Choice extends React.Component {
+  onAnswer() {
+    this.props.onClick(this.props.choice);
+  }
 
-  const getClass = () => {
+  getClass() {
     const arr = ['choice'];
-    isSelected ? arr.push('selected') : '';
+    this.props.isSelected ? arr.push('selected') : '';
     return arr.join(' ');
-  };
+  }
 
-  const { choice, isSelected, onClick } = props;
+  componentDidUpdate(){
+    if(this.props.isSelected) {
+      this.nameInput.focus(); 
+    }
+  }
 
-  return (
-    <label className={getClass()}>
-      <input
-        type="radio"
-        name="choices"
-        onClick={onAnswer}
-        checked={isSelected}
-      />
-      {choice.text}
-    </label>
-  );
+  render() {
+    const { choice, isSelected, ith} = this.props;
+    return (
+      <label className={this.getClass()}>
+        <input
+          type="radio"
+          name="choices"
+          onClick={this.onAnswer.bind(this)}
+          checked={isSelected}
+          ref={(input) => { this.nameInput = input; }} 
+        />
+        {ith && <span className="number">{ith}.</span>}{choice.text}
+      </label>
+    );
+  }
 };
 
 Choice.propTypes = {

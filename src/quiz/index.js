@@ -31,12 +31,15 @@ class Quiz extends React.Component {
     this.setState({ showResults: true });
   }
   handleKeyPress(e) {
+    var choices = this.getActiveQuestion().choices;
     if(e.keyCode === 13) {
       if(this.state.index < this.props.questions.length - 1) {
         this.nextQuestion();
       }else if(!this.state.showResults){
         this.showResults();
       }
+    }else if(e.keyCode >= 49 && e.keyCode < 49 + choices.length ) {
+      this.onAnswer(choices[e.keyCode - 49]);
     }
   }
   componentWillMount() {
