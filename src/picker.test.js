@@ -113,5 +113,25 @@ test('Can pick the pool of choices', () => {
   _.sample.mockRestore();
   var options = {chooseFrom : [3,5,6]}
   var picker = new Picker(options);
+  expect(options.chooseFrom.indexOf(picker.pickCorrect())).toBeGreaterThan(-1);
   expect(options.chooseFrom.indexOf(picker.pickWrong())).toBeGreaterThan(-1);
+});
+
+test('Can pick the pool of correct choices', () => {
+  var options = {chooseFromCorrect : [3,5,6]}
+  var picker = new Picker(options);
+  expect(options.chooseFromCorrect.indexOf(picker.pickCorrect())).toBeGreaterThan(-1);
+});
+
+test('Can pick the pool of wrong choices', () => {
+  var options = {chooseFromWrong : [3,5,6]}
+  var picker = new Picker(options);
+  expect(options.chooseFromWrong.indexOf(picker.pickWrong())).toBeGreaterThan(-1);
+});
+
+test('Can set pool of correct and wrong choices', () => {
+  var options = {chooseFromCorrect : [2], chooseFromWrong : [3]}
+  var picker = new Picker(options);
+  expect(picker.pickCorrect()).toBe(2);
+  expect(picker.pickWrong()).toBe(3);
 });
