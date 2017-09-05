@@ -28,6 +28,7 @@ class Picker {
     } while(this.found.indexOf(i) > -1);
 
     this.found.push(i);
+    this.pushDuplicates(i);
     this.correct = i;
     return i;
   }
