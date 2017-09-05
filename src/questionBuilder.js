@@ -104,6 +104,7 @@ class TableQuestion {
     this.exclude = options.exclude || [];
     this.include = _.without(this.include, ...this.exclude);
     this.table = new Table(options).words;
+    this.text = options.text || this.getText();
 
     this.pickerClass = pickerClass || new Picker();
   }
@@ -114,7 +115,7 @@ class TableQuestion {
     var choices = wrong.concat(correct);
 
     var question = {
-      text : this.getText(),
+      text : this.text,
       choices
     }
     this.question = question;
