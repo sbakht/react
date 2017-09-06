@@ -1,5 +1,17 @@
 import _ from 'underscore';
 
+var isSubArray = function(big, sub) {
+  var isSub = true;
+  sub.forEach((item) => {
+    if(big.indexOf(item) === -1) {
+      isSub = false;
+      return;
+    }
+  });
+
+  return isSub;
+}
+
 class Picker {
   constructor({correct, wrong, chooseFrom, chooseFromCorrect, chooseFromWrong} = {}) {
     this.i = -1;
@@ -37,7 +49,7 @@ class Picker {
       return this.wrongs.shift();
     }
 
-    if(this.found.length === 14) {
+    if(isSubArray(this.found, this.chooseFromWrong)) {
       throw new Error('Out of unique indexes');
     } 
     

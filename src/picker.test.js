@@ -135,3 +135,10 @@ test('Can set pool of correct and wrong choices', () => {
   expect(picker.pickCorrect()).toBe(2);
   expect(picker.pickWrong()).toBe(3);
 });
+
+test('throws error when out of wrong choices', () => {
+  var options = {chooseFromWrong : [0]}
+  var picker = new Picker(options);
+  picker.pickWrong();
+  expect(() => picker.pickWrong()).toThrow();
+});
