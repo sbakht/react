@@ -43,101 +43,67 @@ class Table {
     this.type = options.type;
     this.group = options.group;
     this.str = options.letters;
-    this.advanced = options.advanced;
+    this.complex = options.advanced ? "advanced" : "simple";
     if(options.letters) {
       this.build(options.letters, options.type);
     }
   }
 
   build(str) {
-    if(this.advanced) {
-      this.buildAdvanced();
-    }else{
-      this.buildActive()
-      this.buildPassive()
-    }
-  }
-
-  buildAdvanced() {
-    var vowels = Dictionary.verb.advanced.maps[this.type][this.group].vowels; 
-    var beginVowels = vowels.beginning;
-    vowels = vowels.end.map(item => beginVowels.concat(item));
-    vowels = vowels.map(m => m.map(replacer));
-
-    var letters = Dictionary.verb.advanced.maps[this.type][this.group].letters; 
-    letters = letters.end.map((item, i) => {
-        var rest = this.str;
-        var beginning = letters.beginning[i];
-        while(beginning.indexOf('b') > -1) {
-            beginning = beginning.replace('b', rest[0]);
-            rest = rest.substring(1); 
-        }
-        return beginning + rest + item;
-    });
-    letters = letters.map(item => item.split(''));
-    var words = _.zip(letters,vowels).map(function(item) {
-      return _.flatten(_.zip(item[0], item[1])).join('');
-    })
-    this.words.active = words;
-
-    var vowels = Dictionary.verb.advanced.maps[this.type][this.group].vowels; 
-    var beginVowels = vowels.passive;
-    vowels = vowels.end.map(item => beginVowels.concat(item));
-    vowels = vowels.map(m => m.map(replacer));
-
-    var letters = Dictionary.verb.advanced.maps[this.type][this.group].letters; 
-    letters = letters.end.map((item, i) => {
-        var rest = this.str;
-        var beginning = letters.passive && letters.passive[i] || letters.beginning[i];
-        while(beginning.indexOf('b') > -1) {
-            beginning = beginning.replace('b', rest[0]);
-            rest = rest.substring(1); 
-        }
-        return beginning + rest + item;
-    });
-    letters = letters.map(item => item.split(''));
-    var words = _.zip(letters,vowels).map(function(item) {
-      return _.flatten(_.zip(item[0], item[1])).join('');
-    })
-    this.words.passive = words;
+    this.buildActive()
+    this.buildPassive()
   }
 
   buildActive() {
-    var vowels = Dictionary.verb.simple.maps[this.type][this.group].vowels; 
-    var beginVowels = vowels.beginning;
-    vowels = vowels.end.map(item => beginVowels.concat(item));
-    vowels = vowels.map(m => m.map(replacer));
+    var vowels = this.setupVowels();
+    var letters = this.setupLetters(letters);
 
-    var letters = Dictionary.verb.simple.maps[this.type][this.group].letters; 
-    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    this.words.active = this.getWords(letters, vowels);
+  }
+
+  buildPassive() {
+    var vowels = this.setupVowels(true);
+    var letters = this.setupLetters(letters, true);
+
+    this.words.passive = this.getWords(letters, vowels);
+  }
+
+  getWords(letters, vowels) {
     letters = letters.map(item => item.split(''));
     var words = _.zip(letters,vowels).map(function(item) {
       return _.flatten(_.zip(item[0], item[1])).join('');
     })
-    this.words.active = words;
+    return words;
   }
 
-  buildPassive() {
-    var vowels = Dictionary.verb.simple.maps[this.type][this.group].vowels; 
-    var beginVowels = vowels.passive;
+  setupVowels(isPassive) {
+    var vowels = Dictionary.verb[this.complex].maps[this.type][this.group].vowels; 
+    if(isPassive) {
+        var beginVowels = vowels.passive;
+    }else{
+        var beginVowels = vowels.beginning;
+    }
     vowels = vowels.end.map(item => beginVowels.concat(item));
     vowels = vowels.map(m => m.map(replacer));
+    return vowels;
+  }
 
-    var letters = Dictionary.verb.simple.maps[this.type][this.group].letters; 
+  setupLetters(letters, isPassive) {
+    var letters = Dictionary.verb[this.complex].maps[this.type][this.group].letters; 
     letters = letters.end.map((item, i) => {
         var rest = this.str;
-        var beginning = letters.passive && letters.passive[i] || letters.beginning[i];
+        if(isPassive) {
+            var beginning = letters.passive && letters.passive[i] || letters.beginning[i];
+        }else{
+            var beginning = letters.beginning[i];
+        }
         while(beginning.indexOf('b') > -1) {
             beginning = beginning.replace('b', rest[0]);
             rest = rest.substring(1); 
         }
         return beginning + rest + item;
     });
-    letters = letters.map(item => item.split(''));
-    var words = _.zip(letters,vowels).map(function(item) {
-      return _.flatten(_.zip(item[0], item[1])).join('');
-    })
-    this.words.passive = words;
+    return letters;
   }
 }
 

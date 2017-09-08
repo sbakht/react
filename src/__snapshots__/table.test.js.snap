@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`build akrama maadhi active 1`] = `
+exports[`akrama maadhi active 1`] = `
 Array [
   "أَفْعَلَ",
   "أَفْعَلاَ",
@@ -19,7 +19,7 @@ Array [
 ]
 `;
 
-exports[`build akrama maadhi passive 1`] = `
+exports[`akrama maadhi passive 1`] = `
 Array [
   "أُفْعِلَ",
   "أُفْعِلاَ",
@@ -38,7 +38,7 @@ Array [
 ]
 `;
 
-exports[`build akrama mudari active 1`] = `
+exports[`akrama mudari active 1`] = `
 Array [
   "يُفْعِلُ",
   "يُفْعِلَانِ",
@@ -57,7 +57,7 @@ Array [
 ]
 `;
 
-exports[`build akrama mudari passive 1`] = `
+exports[`akrama mudari passive 1`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",

@@ -46,7 +46,7 @@ describe("simple", () => {
     });
 });
 
-describe("build akrama", () => {
+describe("akrama", () => {
 
     var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type1"}
     describe("maadhi", () => {
