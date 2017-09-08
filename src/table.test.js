@@ -197,3 +197,34 @@ describe("istansara", () => {
         });
     });
 });
+
+
+describe("infatara", () => {
+
+    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type6"}
+    describe("maadhi", () => {
+        test('active', () => {
+          var table = new Table(options);
+          expect(table.words.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          var table = new Table(options);
+          expect(table.words.passive).toMatchSnapshot();
+        });
+    });
+
+    describe("mudari", () => {
+        test('active', () => {
+          options.group = "mudari";
+          var table = new Table(options);
+          expect(table.words.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          options.group = "mudari";
+          var table = new Table(options);
+          expect(table.words.passive).toMatchSnapshot();
+        });
+    });
+});
