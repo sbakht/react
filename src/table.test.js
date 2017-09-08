@@ -137,9 +137,69 @@ describe("qaatala", () => {
     });
 });
 
-describe("ijtanaba", () => {
+describe("taqabbala", () => {
 
     var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type4"}
+    describe("maadhi", () => {
+        test('active', () => {
+          var table = new Table(options);
+          expect(table.words.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          var table = new Table(options);
+          expect(table.words.passive).toMatchSnapshot();
+        });
+    });
+
+    describe("mudari", () => {
+        test('active', () => {
+          options.group = "mudari";
+          var table = new Table(options);
+          expect(table.words.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          options.group = "mudari";
+          var table = new Table(options);
+          expect(table.words.passive).toMatchSnapshot();
+        });
+    });
+});
+
+describe("taqaabala", () => {
+
+    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type5"}
+    describe("maadhi", () => {
+        test('active', () => {
+          var table = new Table(options);
+          expect(table.words.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          var table = new Table(options);
+          expect(table.words.passive).toMatchSnapshot();
+        });
+    });
+
+    describe("mudari", () => {
+        test('active', () => {
+          options.group = "mudari";
+          var table = new Table(options);
+          expect(table.words.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          options.group = "mudari";
+          var table = new Table(options);
+          expect(table.words.passive).toMatchSnapshot();
+        });
+    });
+});
+
+describe("ijtanaba", () => {
+
+    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type6"}
     describe("maadhi", () => {
         test('active', () => {
           var table = new Table(options);
@@ -170,7 +230,7 @@ describe("ijtanaba", () => {
 
 describe("istansara", () => {
 
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type5"}
+    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type7"}
     describe("maadhi", () => {
         test('active', () => {
           var table = new Table(options);
@@ -201,7 +261,7 @@ describe("istansara", () => {
 
 describe("infatara", () => {
 
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type6"}
+    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type8"}
     describe("maadhi", () => {
         test('active', () => {
           var table = new Table(options);
@@ -228,3 +288,4 @@ describe("infatara", () => {
         });
     });
 });
+
