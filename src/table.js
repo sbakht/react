@@ -1,8 +1,6 @@
 import _ from 'underscore';
 import Dictionary from './util/dictionary';
 
-var endings = Dictionary.verb.simple.endings;
-var beginnings = Dictionary.verb.simple.beginnings;
 var d = 'ُ';
 var f = 'َ';
 var k = 'ِ';
@@ -35,51 +33,44 @@ class Table {
     this.words = {};
     this.type = options.type;
     this.group = options.group;
+    this.str = options.letters;
     if(options.letters) {
       this.build(options.letters, options.type);
     }
   }
 
-  build(str, type) {
-    this.buildActive(str, type)
-    this.buildPassive(str, type)
+  build(str) {
+    this.buildActive(str)
+    this.buildPassive(str)
   }
 
-  mappings(isPassive) {
-    if(isPassive) {
-      var firstVowels = Dictionary.verb.simple.maps.passive[this.group];
-    }else{
-      var firstVowels = Dictionary.verb.simple.maps[this.type][this.group];
-    }
-    var mapping = Dictionary.verb.simple.maps.enders[this.group];
+  buildActive() {
+    var vowels = Dictionary.verb.simple.maps[this.type][this.group].vowels; 
+    var beginVowels = vowels.beginning;
+    vowels = vowels.end.map(item => beginVowels.concat(item));
+    vowels = vowels.map(m => m.map(replacer));
 
-    var completeMapping = mapping.map(m => firstVowels.concat(m));
-    return completeMapping.map(m => m.map(replacer));
-  }
-
-  buildActive(str, type) {
-    var words = [];
-    var vowels = this.mappings();
-
-    endings[this.group].map(function(ending, i) {
-      var word =  beginnings[this.group][i] + str + ending;
-      var useVowels = vowels[i] || ['','',''];
-      words.push(_.flatten(_.zip(word.split(''), useVowels)).join(''));
-    }, this);
-
+    var letters = Dictionary.verb.simple.maps[this.type][this.group].letters; 
+    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.map(item => item.split(''));
+    var words = _.zip(letters,vowels).map(function(item) {
+      return _.flatten(_.zip(item[0], item[1])).join('');
+    })
     this.words.active = words;
   }
 
-  buildPassive(str, type) {
-    var words = [];
-    var vowels = this.mappings(true)
+  buildPassive() {
+    var vowels = Dictionary.verb.simple.maps[this.type][this.group].vowels; 
+    var beginVowels = Dictionary.verb.simple.maps.passive[this.group];
+    vowels = vowels.end.map(item => beginVowels.concat(item));
+    vowels = vowels.map(m => m.map(replacer));
 
-    endings[this.group].map(function(ending, i) {
-      var word = beginnings[this.group][i] + str + ending;
-      var useVowels = vowels[i] || ['','',''];
-      words.push(_.flatten(_.zip(word.split(''), useVowels)).join(''));
-    }, this);
-
+    var letters = Dictionary.verb.simple.maps[this.type][this.group].letters; 
+    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.map(item => item.split(''));
+    var words = _.zip(letters,vowels).map(function(item) {
+      return _.flatten(_.zip(item[0], item[1])).join('');
+    })
     this.words.passive = words;
   }
 }

@@ -4,7 +4,7 @@ import css from './style.css';
 import Practice from './practice';
 import Game from './game';
 import Quiz from './quiz';
-import { MaadhiPicker } from './picker';
+import { MaadhiPicker, MudariPicker } from './picker';
 import { FilterByName } from './nameMap';
 import _ from 'underscore';
 import {QuestionBuilder, TableQuestion} from './questionBuilder';
@@ -14,18 +14,19 @@ import {QuestionBuilder, TableQuestion} from './questionBuilder';
 
 //thualthi mazeedfee
 
-var options = { letters : "فعل", group : "maadhi", type : "type1"}
-var questions = Array(50).fill(1).map(function() {
+var options = { letters : "ضرب", group : "mudari", type : "type2"}
+var questions = Array(10).fill(1).map(function() {
   options.choose = _.random(0,13);
-  // options.text = "Pick the plural verb";
+  options.text = "Pick the plural verb";
   // options.include = ['active', 'passive'];
   var singular = FilterByName.filter("singular").toIndex();
   var dual = FilterByName.filter("dual").toIndex();
   var plural = FilterByName.filter("plural").toIndex();
-  var chooseFromCorrect = [options.choose];
+  // var chooseFromCorrect = [options.choose];
+  var chooseFromCorrect = singular;
   // var chooseFromWrong = dual;
-  var chooseFromWrong = singular.concat(dual);
-  var picker = new MaadhiPicker({ chooseFromCorrect });
+  var chooseFromWrong = plural.concat(dual);
+  var picker = new MudariPicker({ chooseFromCorrect, chooseFromWrong });
   var table = new TableQuestion(options, picker);
   table.build(options);
   return table.question;
