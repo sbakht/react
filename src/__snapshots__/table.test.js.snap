@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`builds akrama active maadhi table 1`] = `
+exports[`build akrama maadhi active 1`] = `
 Array [
   "أَفْعَلَ",
   "أَفْعَلاَ",
@@ -19,26 +19,7 @@ Array [
 ]
 `;
 
-exports[`builds akrama active mudari table 1`] = `
-Array [
-  "يُفْعِلُ",
-  "يُفْعِلَانِ",
-  "يُفْعِلُونَ",
-  "تُفْعِلُ",
-  "تُفْعِلَانِ",
-  "يُفْعِلْنَ",
-  "تُفْعِلُ",
-  "تُفْعِلَانِ",
-  "تُفْعِلُونَ",
-  "تُفْعِلِينَ",
-  "تُفْعِلَانِ",
-  "تُفْعِلْنَ",
-  "اُفْعِلُ",
-  "نُفْعِلُ",
-]
-`;
-
-exports[`builds akrama passive maadhi table 1`] = `
+exports[`build akrama maadhi passive 1`] = `
 Array [
   "أُفْعِلَ",
   "أُفْعِلاَ",
@@ -57,7 +38,26 @@ Array [
 ]
 `;
 
-exports[`builds akrama passive mudari table 1`] = `
+exports[`build akrama mudari active 1`] = `
+Array [
+  "يُفْعِلُ",
+  "يُفْعِلَانِ",
+  "يُفْعِلُونَ",
+  "تُفْعِلُ",
+  "تُفْعِلَانِ",
+  "يُفْعِلْنَ",
+  "تُفْعِلُ",
+  "تُفْعِلَانِ",
+  "تُفْعِلُونَ",
+  "تُفْعِلِينَ",
+  "تُفْعِلَانِ",
+  "تُفْعِلْنَ",
+  "اُفْعِلُ",
+  "نُفْعِلُ",
+]
+`;
+
+exports[`build akrama mudari passive 1`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",
@@ -76,7 +76,83 @@ Array [
 ]
 `;
 
-exports[`builds simple active maadhi table 1`] = `
+exports[`sarrafa maadhi active 1`] = `
+Array [
+  "فَعَّلَ",
+  "فَعَّلاَ",
+  "فَعَّلُوا",
+  "فَعَّلَتْ",
+  "فَعَّلَتَا",
+  "فَعَّلْنَ",
+  "فَعَّلْتَ",
+  "فَعَّلْتُمَا",
+  "فَعَّلْتُمْ",
+  "فَعَّلْتِ",
+  "فَعَّلْتُمَا",
+  "فَعَّلْتُنَّ",
+  "فَعَّلْتُ",
+  "فَعَّلْنَا",
+]
+`;
+
+exports[`sarrafa maadhi passive 1`] = `
+Array [
+  "فُعِّلَ",
+  "فُعِّلاَ",
+  "فُعِّلُوا",
+  "فُعِّلَتْ",
+  "فُعِّلَتَا",
+  "فُعِّلْنَ",
+  "فُعِّلْتَ",
+  "فُعِّلْتُمَا",
+  "فُعِّلْتُمْ",
+  "فُعِّلْتِ",
+  "فُعِّلْتُمَا",
+  "فُعِّلْتُنَّ",
+  "فُعِّلْتُ",
+  "فُعِّلْنَا",
+]
+`;
+
+exports[`sarrafa mudari active 1`] = `
+Array [
+  "يُفَعِّلُ",
+  "يُفَعِّلَانِ",
+  "يُفَعِّلُونَ",
+  "تُفَعِّلُ",
+  "تُفَعِّلَانِ",
+  "يُفَعِّلْنَ",
+  "تُفَعِّلُ",
+  "تُفَعِّلَانِ",
+  "تُفَعِّلُونَ",
+  "تُفَعِّلِينَ",
+  "تُفَعِّلَانِ",
+  "تُفَعِّلْنَ",
+  "اُفَعِّلُ",
+  "نُفَعِّلُ",
+]
+`;
+
+exports[`sarrafa mudari passive 1`] = `
+Array [
+  "يُفَعَّلُ",
+  "يُفَعَّلَانِ",
+  "يُفَعَّلُونَ",
+  "تُفَعَّلُ",
+  "تُفَعَّلَانِ",
+  "يُفَعَّلْنَ",
+  "تُفَعَّلُ",
+  "تُفَعَّلَانِ",
+  "تُفَعَّلُونَ",
+  "تُفَعَّلِينَ",
+  "تُفَعَّلَانِ",
+  "تُفَعَّلْنَ",
+  "اُفَعَّلُ",
+  "نُفَعَّلُ",
+]
+`;
+
+exports[`simple maadhi active 1`] = `
 Array [
   "فَعَلَ",
   "فَعَلاَ",
@@ -95,7 +171,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active maadhi table 2`] = `
+exports[`simple maadhi active 2`] = `
 Array [
   "فَعَلَ",
   "فَعَلاَ",
@@ -114,7 +190,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active maadhi table 3`] = `
+exports[`simple maadhi active 3`] = `
 Array [
   "فَعِلَ",
   "فَعِلاَ",
@@ -133,7 +209,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active maadhi table 4`] = `
+exports[`simple maadhi active 4`] = `
 Array [
   "فَعَلَ",
   "فَعَلاَ",
@@ -152,7 +228,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active maadhi table 5`] = `
+exports[`simple maadhi active 5`] = `
 Array [
   "فَعُلَ",
   "فَعُلاَ",
@@ -171,7 +247,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active maadhi table 6`] = `
+exports[`simple maadhi active 6`] = `
 Array [
   "فَعِلَ",
   "فَعِلاَ",
@@ -190,7 +266,121 @@ Array [
 ]
 `;
 
-exports[`builds simple active mudari table 1`] = `
+exports[`simple maadhi passive 1`] = `
+Array [
+  "فُعِلَ",
+  "فُعِلاَ",
+  "فُعِلُوا",
+  "فُعِلَتْ",
+  "فُعِلَتَا",
+  "فُعِلْنَ",
+  "فُعِلْتَ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُمْ",
+  "فُعِلْتِ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُنَّ",
+  "فُعِلْتُ",
+  "فُعِلْنَا",
+]
+`;
+
+exports[`simple maadhi passive 2`] = `
+Array [
+  "فُعِلَ",
+  "فُعِلاَ",
+  "فُعِلُوا",
+  "فُعِلَتْ",
+  "فُعِلَتَا",
+  "فُعِلْنَ",
+  "فُعِلْتَ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُمْ",
+  "فُعِلْتِ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُنَّ",
+  "فُعِلْتُ",
+  "فُعِلْنَا",
+]
+`;
+
+exports[`simple maadhi passive 3`] = `
+Array [
+  "فُعِلَ",
+  "فُعِلاَ",
+  "فُعِلُوا",
+  "فُعِلَتْ",
+  "فُعِلَتَا",
+  "فُعِلْنَ",
+  "فُعِلْتَ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُمْ",
+  "فُعِلْتِ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُنَّ",
+  "فُعِلْتُ",
+  "فُعِلْنَا",
+]
+`;
+
+exports[`simple maadhi passive 4`] = `
+Array [
+  "فُعِلَ",
+  "فُعِلاَ",
+  "فُعِلُوا",
+  "فُعِلَتْ",
+  "فُعِلَتَا",
+  "فُعِلْنَ",
+  "فُعِلْتَ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُمْ",
+  "فُعِلْتِ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُنَّ",
+  "فُعِلْتُ",
+  "فُعِلْنَا",
+]
+`;
+
+exports[`simple maadhi passive 5`] = `
+Array [
+  "فُعِلَ",
+  "فُعِلاَ",
+  "فُعِلُوا",
+  "فُعِلَتْ",
+  "فُعِلَتَا",
+  "فُعِلْنَ",
+  "فُعِلْتَ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُمْ",
+  "فُعِلْتِ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُنَّ",
+  "فُعِلْتُ",
+  "فُعِلْنَا",
+]
+`;
+
+exports[`simple maadhi passive 6`] = `
+Array [
+  "فُعِلَ",
+  "فُعِلاَ",
+  "فُعِلُوا",
+  "فُعِلَتْ",
+  "فُعِلَتَا",
+  "فُعِلْنَ",
+  "فُعِلْتَ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُمْ",
+  "فُعِلْتِ",
+  "فُعِلْتُمَا",
+  "فُعِلْتُنَّ",
+  "فُعِلْتُ",
+  "فُعِلْنَا",
+]
+`;
+
+exports[`simple mudari active 1`] = `
 Array [
   "يَفْعُلُ",
   "يَفْعُلَانِ",
@@ -209,7 +399,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active mudari table 2`] = `
+exports[`simple mudari active 2`] = `
 Array [
   "يَفْعِلُ",
   "يَفْعِلَانِ",
@@ -228,7 +418,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active mudari table 3`] = `
+exports[`simple mudari active 3`] = `
 Array [
   "يَفْعَلُ",
   "يَفْعَلَانِ",
@@ -247,7 +437,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active mudari table 4`] = `
+exports[`simple mudari active 4`] = `
 Array [
   "يَفْعَلُ",
   "يَفْعَلَانِ",
@@ -266,7 +456,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active mudari table 5`] = `
+exports[`simple mudari active 5`] = `
 Array [
   "يَفْعُلُ",
   "يَفْعُلَانِ",
@@ -285,7 +475,7 @@ Array [
 ]
 `;
 
-exports[`builds simple active mudari table 6`] = `
+exports[`simple mudari active 6`] = `
 Array [
   "يَفْعِلُ",
   "يَفْعِلَانِ",
@@ -304,121 +494,7 @@ Array [
 ]
 `;
 
-exports[`builds simple passive maadhi table 1`] = `
-Array [
-  "فُعِلَ",
-  "فُعِلاَ",
-  "فُعِلُوا",
-  "فُعِلَتْ",
-  "فُعِلَتَا",
-  "فُعِلْنَ",
-  "فُعِلْتَ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُمْ",
-  "فُعِلْتِ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُنَّ",
-  "فُعِلْتُ",
-  "فُعِلْنَا",
-]
-`;
-
-exports[`builds simple passive maadhi table 2`] = `
-Array [
-  "فُعِلَ",
-  "فُعِلاَ",
-  "فُعِلُوا",
-  "فُعِلَتْ",
-  "فُعِلَتَا",
-  "فُعِلْنَ",
-  "فُعِلْتَ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُمْ",
-  "فُعِلْتِ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُنَّ",
-  "فُعِلْتُ",
-  "فُعِلْنَا",
-]
-`;
-
-exports[`builds simple passive maadhi table 3`] = `
-Array [
-  "فُعِلَ",
-  "فُعِلاَ",
-  "فُعِلُوا",
-  "فُعِلَتْ",
-  "فُعِلَتَا",
-  "فُعِلْنَ",
-  "فُعِلْتَ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُمْ",
-  "فُعِلْتِ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُنَّ",
-  "فُعِلْتُ",
-  "فُعِلْنَا",
-]
-`;
-
-exports[`builds simple passive maadhi table 4`] = `
-Array [
-  "فُعِلَ",
-  "فُعِلاَ",
-  "فُعِلُوا",
-  "فُعِلَتْ",
-  "فُعِلَتَا",
-  "فُعِلْنَ",
-  "فُعِلْتَ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُمْ",
-  "فُعِلْتِ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُنَّ",
-  "فُعِلْتُ",
-  "فُعِلْنَا",
-]
-`;
-
-exports[`builds simple passive maadhi table 5`] = `
-Array [
-  "فُعِلَ",
-  "فُعِلاَ",
-  "فُعِلُوا",
-  "فُعِلَتْ",
-  "فُعِلَتَا",
-  "فُعِلْنَ",
-  "فُعِلْتَ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُمْ",
-  "فُعِلْتِ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُنَّ",
-  "فُعِلْتُ",
-  "فُعِلْنَا",
-]
-`;
-
-exports[`builds simple passive maadhi table 6`] = `
-Array [
-  "فُعِلَ",
-  "فُعِلاَ",
-  "فُعِلُوا",
-  "فُعِلَتْ",
-  "فُعِلَتَا",
-  "فُعِلْنَ",
-  "فُعِلْتَ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُمْ",
-  "فُعِلْتِ",
-  "فُعِلْتُمَا",
-  "فُعِلْتُنَّ",
-  "فُعِلْتُ",
-  "فُعِلْنَا",
-]
-`;
-
-exports[`builds simple passive mudari table 1`] = `
+exports[`simple mudari passive 1`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",
@@ -437,7 +513,7 @@ Array [
 ]
 `;
 
-exports[`builds simple passive mudari table 2`] = `
+exports[`simple mudari passive 2`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",
@@ -456,7 +532,7 @@ Array [
 ]
 `;
 
-exports[`builds simple passive mudari table 3`] = `
+exports[`simple mudari passive 3`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",
@@ -475,7 +551,7 @@ Array [
 ]
 `;
 
-exports[`builds simple passive mudari table 4`] = `
+exports[`simple mudari passive 4`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",
@@ -494,7 +570,7 @@ Array [
 ]
 `;
 
-exports[`builds simple passive mudari table 5`] = `
+exports[`simple mudari passive 5`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",
@@ -513,7 +589,7 @@ Array [
 ]
 `;
 
-exports[`builds simple passive mudari table 6`] = `
+exports[`simple mudari passive 6`] = `
 Array [
   "يُفْعَلُ",
   "يُفْعَلَانِ",

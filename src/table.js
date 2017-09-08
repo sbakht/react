@@ -26,6 +26,15 @@ function replacer(i) {
   if(i === 5) {
     return sh;
   }
+  if(i === 51) {
+    return sh + d;
+  }
+  if(i === 52) {
+    return sh + f;
+  }
+  if(i === 53) {
+    return sh + k;
+  }
 }
 
 class Table {
@@ -64,7 +73,7 @@ class Table {
     this.words.active = words;
 
     var vowels = Dictionary.verb.advanced.maps[this.type][this.group].vowels; 
-    var beginVowels = Dictionary.verb.advanced.maps.passive[this.group];
+    var beginVowels = vowels.passive;
     vowels = vowels.end.map(item => beginVowels.concat(item));
     vowels = vowels.map(m => m.map(replacer));
 
@@ -94,7 +103,7 @@ class Table {
 
   buildPassive() {
     var vowels = Dictionary.verb.simple.maps[this.type][this.group].vowels; 
-    var beginVowels = Dictionary.verb.simple.maps.passive[this.group];
+    var beginVowels = vowels.passive;
     vowels = vowels.end.map(item => beginVowels.concat(item));
     vowels = vowels.map(m => m.map(replacer));
 
