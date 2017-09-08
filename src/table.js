@@ -65,7 +65,15 @@ class Table {
     vowels = vowels.map(m => m.map(replacer));
 
     var letters = Dictionary.verb.advanced.maps[this.type][this.group].letters; 
-    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.end.map((item, i) => {
+        var rest = this.str;
+        var beginning = letters.beginning[i];
+        while(beginning.indexOf('b') > -1) {
+            beginning = beginning.replace('b', rest[0]);
+            rest = rest.substring(1); 
+        }
+        return beginning + rest + item;
+    });
     letters = letters.map(item => item.split(''));
     var words = _.zip(letters,vowels).map(function(item) {
       return _.flatten(_.zip(item[0], item[1])).join('');
@@ -78,7 +86,15 @@ class Table {
     vowels = vowels.map(m => m.map(replacer));
 
     var letters = Dictionary.verb.advanced.maps[this.type][this.group].letters; 
-    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.end.map((item, i) => {
+        var rest = this.str;
+        var beginning = letters.passive && letters.passive[i] || letters.beginning[i];
+        while(beginning.indexOf('b') > -1) {
+            beginning = beginning.replace('b', rest[0]);
+            rest = rest.substring(1); 
+        }
+        return beginning + rest + item;
+    });
     letters = letters.map(item => item.split(''));
     var words = _.zip(letters,vowels).map(function(item) {
       return _.flatten(_.zip(item[0], item[1])).join('');
@@ -108,7 +124,15 @@ class Table {
     vowels = vowels.map(m => m.map(replacer));
 
     var letters = Dictionary.verb.simple.maps[this.type][this.group].letters; 
-    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.end.map((item, i) => {
+        var rest = this.str;
+        var beginning = letters.passive && letters.passive[i] || letters.beginning[i];
+        while(beginning.indexOf('b') > -1) {
+            beginning = beginning.replace('b', rest[0]);
+            rest = rest.substring(1); 
+        }
+        return beginning + rest + item;
+    });
     letters = letters.map(item => item.split(''));
     var words = _.zip(letters,vowels).map(function(item) {
       return _.flatten(_.zip(item[0], item[1])).join('');
