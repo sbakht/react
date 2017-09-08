@@ -34,14 +34,47 @@ class Table {
     this.type = options.type;
     this.group = options.group;
     this.str = options.letters;
+    this.advanced = options.advanced;
     if(options.letters) {
       this.build(options.letters, options.type);
     }
   }
 
   build(str) {
-    this.buildActive(str)
-    this.buildPassive(str)
+    if(this.advanced) {
+      this.buildAdvanced();
+    }else{
+      this.buildActive()
+      this.buildPassive()
+    }
+  }
+
+  buildAdvanced() {
+    var vowels = Dictionary.verb.advanced.maps[this.type][this.group].vowels; 
+    var beginVowels = vowels.beginning;
+    vowels = vowels.end.map(item => beginVowels.concat(item));
+    vowels = vowels.map(m => m.map(replacer));
+
+    var letters = Dictionary.verb.advanced.maps[this.type][this.group].letters; 
+    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.map(item => item.split(''));
+    var words = _.zip(letters,vowels).map(function(item) {
+      return _.flatten(_.zip(item[0], item[1])).join('');
+    })
+    this.words.active = words;
+
+    var vowels = Dictionary.verb.advanced.maps[this.type][this.group].vowels; 
+    var beginVowels = Dictionary.verb.advanced.maps.passive[this.group];
+    vowels = vowels.end.map(item => beginVowels.concat(item));
+    vowels = vowels.map(m => m.map(replacer));
+
+    var letters = Dictionary.verb.advanced.maps[this.type][this.group].letters; 
+    letters = letters.end.map((item, i) => letters.beginning[i] + this.str + item );
+    letters = letters.map(item => item.split(''));
+    var words = _.zip(letters,vowels).map(function(item) {
+      return _.flatten(_.zip(item[0], item[1])).join('');
+    })
+    this.words.passive = words;
   }
 
   buildActive() {

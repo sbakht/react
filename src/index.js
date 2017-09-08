@@ -14,7 +14,24 @@ import {QuestionBuilder, TableQuestion} from './questionBuilder';
 
 //thualthi mazeedfee
 
-var options = { letters : "ضرب", group : "mudari", type : "type2"}
+// var options = { letters : "ضرب", group : "mudari", type : "type2"}
+// var questions = Array(10).fill(1).map(function() {
+//   options.choose = _.random(0,13);
+//   options.text = "Pick the plural verb";
+//   // options.include = ['active', 'passive'];
+//   var singular = FilterByName.filter("singular").toIndex();
+//   var dual = FilterByName.filter("dual").toIndex();
+//   var plural = FilterByName.filter("plural").toIndex();
+//   // var chooseFromCorrect = [options.choose];
+//   var chooseFromCorrect = singular;
+//   // var chooseFromWrong = dual;
+//   var chooseFromWrong = plural.concat(dual);
+//   var picker = new MudariPicker({ chooseFromCorrect, chooseFromWrong });
+//   var table = new TableQuestion(options, picker);
+//   table.build(options);
+//   return table.question;
+// })
+var options = { letters : "كرم", group : "mudari", type : "type1", advanced: true, include: ['active','passive']}
 var questions = Array(10).fill(1).map(function() {
   options.choose = _.random(0,13);
   options.text = "Pick the plural verb";

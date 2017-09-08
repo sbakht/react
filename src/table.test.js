@@ -34,3 +34,27 @@ test('builds simple passive mudari table', () => {
     expect(table.words.passive).toMatchSnapshot();
   }
 });
+
+test('builds akrama active maadhi table', () => {
+  var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type1"}
+  var table = new Table(options);
+  expect(table.words.active).toMatchSnapshot();
+});
+
+test('builds akrama passive maadhi table', () => {
+  var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type1"}
+  var table = new Table(options);
+  expect(table.words.passive).toMatchSnapshot();
+});
+
+test('builds akrama active mudari table', () => {
+  var options = { letters : "فعل", advanced: true, group : "mudari", type : "type1"}
+  var table = new Table(options);
+  expect(table.words.active).toMatchSnapshot();
+});
+
+test('builds akrama passive mudari table', () => {
+  var options = { letters : "فعل", advanced: true, group : "mudari", type : "type1"}
+  var table = new Table(options);
+  expect(table.words.passive).toMatchSnapshot();
+});
