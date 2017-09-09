@@ -102,6 +102,7 @@ class TableQuestion {
     this.voice = options.voice || "active";
     this.include = options.include || [];
     this.exclude = options.exclude || [];
+    this.includeGroup = options.includeGroup || [];
     this.include = _.without(this.include, ...this.exclude);
     this.table = new Table(options).words;
     this.text = options.text || this.getText();
@@ -126,22 +127,24 @@ class TableQuestion {
   }
 
   getCorrect() {
-    var voice = this.include[_.random(0, this.include.length-1)] || this.voice;
-    var table = this.table[this.group][voice];
+    var voice = this.include.length && this.include[_.random(0, this.include.length-1)] || this.voice;
+    var group = this.includeGroup.length && this.includeGroup[_.random(0, this.includeGroup.length-1)] || this.group;
+    var table = this.table[group][voice];
     var i = this.pickerClass.pickCorrect();
     return buildChoice(table[i], true);
   }
 
   getWrong() {
     return Array(3).fill(1).map(function() {
-          var voice = this.include[_.random(0, this.include.length-1)] || this.voice;
-          var word = this.sampleR(voice, 1);
+          var voice = this.include.length && this.include[_.random(0, this.include.length-1)] || this.voice;
+          var group = this.includeGroup.length && this.includeGroup[_.random(0, this.includeGroup.length-1)] || this.group;
+          var word = this.sampleR(group, voice, 1);
           return buildChoice(word, false);
         }, this);
   }
 
-  sampleR(voice, count) {
-    var table = this.table[this.group][voice];
+  sampleR(group, voice, count) {
+    var table = this.table[group][voice];
     var i = this.pickerClass.pickWrong();
     return table[i];
   }

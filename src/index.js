@@ -32,7 +32,11 @@ import {QuestionBuilder, TableQuestion} from './questionBuilder';
 //   table.build(options);
 //   return table.question;
 // })
-var options = { letters : "كرم", group : "mudari", type : "type1", advanced: true, include: ['active','passive']}
+var options = { letters : "كرم", group : "mudari", type : "type1", 
+                advanced: true, 
+                include: ['active','passive'],
+                includeGroup: ['maadhi', 'mudari']
+              }
 var questions = Array(10).fill(1).map(function() {
   options.choose = _.random(0,13);
   options.text = "Pick the plural verb";
