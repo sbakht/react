@@ -38,11 +38,12 @@ test('render results', () => {
 
 test('change question', () => {
   const component = shallow(<Quiz questions={questions} />);
-  component.instance().nextQuestion();
+  var e = {preventDefault : () => null}
+  component.instance().nextQuestion(e);
   component.update();
   expect(toJSON(component)).toMatchSnapshot();
 
-  component.instance().prevQuestion();
+  component.instance().prevQuestion(e);
   component.update();
   expect(toJSON(component)).toMatchSnapshot();
 });
@@ -56,7 +57,8 @@ test('update answers', () => {
 
 test('change question -> update answers', () => {
   const component = shallow(<Quiz questions={questions} />);
-  component.instance().nextQuestion();
+  var e = {preventDefault : () => null}
+  component.instance().nextQuestion(e);
   component.update();
   expect(toJSON(component)).toMatchSnapshot();
 

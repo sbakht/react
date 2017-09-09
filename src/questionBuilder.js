@@ -127,7 +127,7 @@ class TableQuestion {
 
   getCorrect() {
     var voice = this.include[_.random(0, this.include.length-1)] || this.voice;
-    var table = this.table[voice];
+    var table = this.table[this.group][voice];
     var i = this.pickerClass.pickCorrect();
     return buildChoice(table[i], true);
   }
@@ -141,7 +141,7 @@ class TableQuestion {
   }
 
   sampleR(voice, count) {
-    var table = this.table[voice];
+    var table = this.table[this.group][voice];
     var i = this.pickerClass.pickWrong();
     return table[i];
   }

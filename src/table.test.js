@@ -3,289 +3,103 @@ import Util from './util';
 import { Table } from './table'
 import _ from 'underscore';
 
+function tableTests(options) {
+    var table;
+    beforeEach(() => {
+      table = new Table(options);
+    });
+
+    describe("maadhi", () => {
+        test('active', () => {
+          expect(table.words.maadhi.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          expect(table.words.maadhi.passive).toMatchSnapshot();
+        });
+    });
+
+    describe("mudari", () => {
+        test('active', () => {
+          expect(table.words.mudari.active).toMatchSnapshot();
+        });
+
+        test('passive', () => {
+          expect(table.words.mudari.passive).toMatchSnapshot();
+        });
+    });
+}
 
 describe("simple", () => {
 
-    var options = { letters : "فعل", group : "maadhi" };
-    describe("maadhi", () => {
-        test('active', () => {
-          for(var i = 1; i <= 6; i++) {
-            options.type = "type" + i;
-            var table = new Table(options);
-            expect(table.words.active).toMatchSnapshot();
-          }
-        });
+  describe("nasara", () => {
+      var options = { letters : "فعل", type : "type1"}
+      tableTests(options);
+  });
 
-        test('passive', () => {
-          for(var i = 1; i <= 6; i++) {
-            options.type = "type" + i;
-            var table = new Table(options);
-            expect(table.words.passive).toMatchSnapshot();
-          }
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          for(var i = 1; i <= 6; i++) {
-            options.group = "mudari"
-            options.type = "type" + i;
-            var table = new Table(options);
-            expect(table.words.active).toMatchSnapshot();
-          }
-        });
-
-        test('passive', () => {
-          for(var i = 1; i <= 6; i++) {
-            options.group = "mudari"
-            options.type = "type" + i;
-            var table = new Table(options);
-            expect(table.words.passive).toMatchSnapshot();
-          }
-        });
-    });
+  describe("daraba", () => {
+      var options = { letters : "فعل", type : "type2"}
+      tableTests(options);
+  });
+  describe("sameya", () => {
+      var options = { letters : "فعل", type : "type3"}
+      tableTests(options);
+  });
+  describe("fataha", () => {
+      var options = { letters : "فعل", type : "type4"}
+      tableTests(options);
+  });
+  describe("karuma", () => {
+      var options = { letters : "فعل", type : "type5"}
+      tableTests(options);
+  });
+  describe("haseba", () => {
+      var options = { letters : "فعل", type : "type6"}
+      tableTests(options);
+  });
+  
 });
 
-describe("akrama", () => {
+describe("advanced", () => {
 
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type1"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
+  describe("akrama", () => {
+    var options = { letters : "فعل", advanced: true, type : "type1"}
+    tableTests(options);
+  });
 
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
+  describe("sarrafa", () => {
+      var options = { letters : "فعل", advanced: true, type : "type2"}
+      tableTests(options);
+  });
 
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
+  describe("qaatala", () => {
+      var options = { letters : "فعل", advanced: true, type : "type3"}
+      tableTests(options);
+  });
 
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
+  describe("taqabbala", () => {
+      var options = { letters : "فعل", advanced: true, type : "type4"}
+      tableTests(options);
+  });
+
+  describe("taqaabala", () => {
+      var options = { letters : "فعل", advanced: true, type : "type5"}
+      tableTests(options);
+  });
+
+  describe("ijtanaba", () => {
+      var options = { letters : "فعل", advanced: true, type : "type6"}
+      tableTests(options);
+  });
+
+  describe("istansara", () => {
+      var options = { letters : "فعل", advanced: true, type : "type7"}
+      tableTests(options);
+  });
+
+  describe("infatara", () => {
+      var options = { letters : "فعل", advanced: true, type : "type8"};
+      tableTests(options);
+  });
+
 });
-
-describe("sarrafa", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type2"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-
-
-describe("qaatala", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type3"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-
-describe("taqabbala", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type4"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-
-describe("taqaabala", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type5"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-
-describe("ijtanaba", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type6"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-
-
-describe("istansara", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type7"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-
-
-describe("infatara", () => {
-
-    var options = { letters : "فعل", advanced: true, group : "maadhi", type : "type8"}
-    describe("maadhi", () => {
-        test('active', () => {
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-
-    describe("mudari", () => {
-        test('active', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.active).toMatchSnapshot();
-        });
-
-        test('passive', () => {
-          options.group = "mudari";
-          var table = new Table(options);
-          expect(table.words.passive).toMatchSnapshot();
-        });
-    });
-});
-

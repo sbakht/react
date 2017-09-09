@@ -36,20 +36,15 @@ class Table extends React.Component {
 		var options = this.state.options;
 		options.group = "maadhi";
 		var table = new TableBuilder(options);
-		var maadhi = table.words;
-
-		options.group = "mudari";
-		var table = new TableBuilder(options);
-		var mudari = table.words;
 
 		var words = [];
 		for(var i = 0; i < 15; i++) {
 			words.push(
 				<tr>
-					<td>{maadhi.active[i]}</td>
-					<td>{maadhi.passive[i]}</td>
-					<td>{mudari.active[i]}</td>
-					<td>{mudari.passive[i]}</td>
+					<td>{table.words.maadhi.active[i]}</td>
+					<td>{table.words.maadhi.passive[i]}</td>
+					<td>{table.words.mudari.active[i]}</td>
+					<td>{table.words.mudari.passive[i]}</td>
 				</tr>
 				)
 		}

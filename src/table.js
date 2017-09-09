@@ -39,9 +39,8 @@ function replacer(i) {
 
 class Table {
   constructor(options) {
-    this.words = {};
+    this.words = { maadhi : {}, mudari : {}};
     this.type = options.type;
-    this.group = options.group;
     this.str = options.letters;
     this.complex = options.advanced ? "advanced" : "simple";
     if(options.letters) {
@@ -50,6 +49,11 @@ class Table {
   }
 
   build(str) {
+    this.group = 'maadhi';
+    this.buildActive()
+    this.buildPassive()
+
+    this.group = 'mudari';
     this.buildActive()
     this.buildPassive()
   }
@@ -58,14 +62,14 @@ class Table {
     var vowels = this.setupVowels();
     var letters = this.setupLetters(letters);
 
-    this.words.active = this.getWords(letters, vowels);
+    this.words[this.group].active = this.getWords(letters, vowels);
   }
 
   buildPassive() {
     var vowels = this.setupVowels(true);
     var letters = this.setupLetters(letters, true);
 
-    this.words.passive = this.getWords(letters, vowels);
+    this.words[this.group].passive = this.getWords(letters, vowels);
   }
 
   getWords(letters, vowels) {
