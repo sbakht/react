@@ -1,4 +1,4 @@
-.app td{
+/*.app td{
   font-size: 80px;
 }
 
@@ -19,7 +19,7 @@ tr#active td, tr#passive td {
 
 tr#command td {
   width: 33%;
-}
+}*/
 
 button {
   display: block;

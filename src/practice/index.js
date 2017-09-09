@@ -57,7 +57,7 @@ class Practice extends React.Component {
         <button id="generate" onClick={this.generate}>
           Generate Sarf Table
         </button>
-        {!!Object.keys(this.state.grammar).length && <Table grammar={this.state.grammar} />}
+        {!!Object.keys(this.state.grammar).length && <Table grammar={this.state.grammar} roots={this.state.roots} />}
       </div>
     );
   }

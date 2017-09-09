@@ -1,0 +1,13 @@
+table {
+  direction: rtl;
+  width: 100%;
+  margin: 0 auto;
+}
+
+td {
+  font-size: 50px;
+}
+
+th {
+	text-align: right;
+}

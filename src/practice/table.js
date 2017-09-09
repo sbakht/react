@@ -25,7 +25,7 @@ class Table extends React.Component {
 
 class Active extends React.Component {
   render() {
-    const grammar = this.props.grammar;
+    const grammar = this.props.grammar.word;
     return (
       <tr id="active">
         <td>
@@ -51,16 +51,16 @@ class Passive extends React.Component {
       return (
         <tr id="passive">
           <td>
-            {this.props.grammar.pastP}
+            {this.props.grammar.word.pastP}
           </td>
           <td>
-            {this.props.grammar.presentP}
+            {this.props.grammar.word.presentP}
           </td>
           <td>
-            {this.props.grammar.masdr}
+            {this.props.grammar.word.masdr}
           </td>
           <td>
-            {this.props.grammar.mafool}
+            {this.props.grammar.word.mafool}
           </td>
         </tr>
       );
@@ -71,7 +71,7 @@ class Passive extends React.Component {
 
 class Command extends React.Component {
   render() {
-    const grammar = this.props.grammar;
+    const grammar = this.props.grammar.word;
     return (
       <table>
         <tr id="command">
