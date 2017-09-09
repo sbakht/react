@@ -21,10 +21,12 @@ class Quiz extends React.Component {
     answers[this.state.index] = choice;
     this.setState({ answers });
   }
-  nextQuestion() {
+  nextQuestion(e) {
+    e.preventDefault();
     this.setState({ index: this.state.index + 1 });
   }
-  prevQuestion() {
+  prevQuestion(e) {
+    e.preventDefault();
     this.setState({ index: this.state.index - 1 });
   }
   showResults() {
