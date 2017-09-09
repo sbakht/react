@@ -11,3 +11,7 @@ td {
 th {
 	text-align: right;
 }
+
+form button {
+	margin: 0;
+}

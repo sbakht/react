@@ -12,18 +12,16 @@ class Table extends React.Component {
 			options : { letters : "فعل", group : "maadhi", type : "type1" }
 		}
 
-		this.onChange = this.onChange.bind(this);
+		this.updateRoots = this.updateRoots.bind(this);
+		this.updateType = this.updateType.bind(this);
 		this.onSubmit = this.onSubmit.bind(this);
 	}
 
 	updateRoots(e) {
 		this.setState({ roots : e.target.value});
 	}
-	onChange(e) {
+	updateType(e) {
 		this.setState({type : e.target.value});
-	}
-	updateCheck(e) {
-		this.setState({ advanced: e.target.checked });
 	}
 	onSubmit(e) {
 		e.preventDefault();
@@ -36,44 +34,72 @@ class Table extends React.Component {
 
 	render() {
 		var options = this.state.options;
+		options.group = "maadhi";
 		var table = new TableBuilder(options);
+		var maadhi = table.words;
+
+		options.group = "mudari";
+		var table = new TableBuilder(options);
+		var mudari = table.words;
 
 		var words = [];
 		for(var i = 0; i < 15; i++) {
-			words.push(<tr><td>{table.words.active[i]}</td><td>{table.words.passive[i]}</td></tr>)
+			words.push(
+				<tr>
+					<td>{maadhi.active[i]}</td>
+					<td>{maadhi.passive[i]}</td>
+					<td>{mudari.active[i]}</td>
+					<td>{mudari.passive[i]}</td>
+				</tr>
+				)
 		}
+
 		return (
 			<div>
 				<form onSubmit={this.onSubmit}>
-					<input type="text" value={this.state.roots} onChange={e => this.updateRoots(e)} />
-					<select value={this.state.type} onChange={this.onChange}>
-						<optgroup label="Simple">
-							<option data-category="simple">type1</option>
-							<option data-category="simple">type2</option>
-							<option data-category="simple">type3</option>
-							<option data-category="simple">type4</option>
-							<option data-category="simple">type5</option>
-							<option data-category="simple">type6</option>
-						</optgroup>
-						<optgroup label="Advanced">
-							<option value="type1-a">type1</option>
-							<option value="type2-a">type2</option>
-							<option value="type3-a">type3</option>
-							<option value="type4-a">type4</option>
-							<option value="type5-a">type5</option>
-							<option value="type6-a">type6</option>
-							<option value="type7-a">type7</option>
-							<option value="type8-a">type8</option>
-						</optgroup>
-					</select>
-					<input type="checkbox" checked={this.state.advanced} onChange={e => this.updateCheck(e)} />
-					<button type="submit">submit</button>
+					<div>
+						<label for="roots">Roots</label>
+						<input type="text" value={this.state.roots} onChange={this.updateRoots} />
+					</div>
+
+					<div>
+						<label for="roots">Type</label>
+						<select value={this.state.type} onChange={this.updateType}>
+							<optgroup label="Simple">
+								<option value="type1">nasara</option>
+								<option value="type2">daraba</option>
+								<option value="type3">sameya</option>
+								<option value="type4">fataha</option>
+								<option value="type5">karuma</option>
+								<option value="type6">haseba</option>
+							</optgroup>
+							<optgroup label="Advanced">
+								<option value="type1-a">akrama</option>
+								<option value="type2-a">sarrafa</option>
+								<option value="type3-a">qaatala</option>
+								<option value="type4-a">taqabbala</option>
+								<option value="type5-a">taqaabala</option>
+								<option value="type6-a">ijtanaba</option>
+								<option value="type7-a">istansara</option>
+								<option value="type8-a">infatara</option>
+							</optgroup>
+						</select>
+					</div>
+					<div>
+						<button type="submit">Submit</button>
+					</div>
 				</form>
 				<table>
 					<thead>
 						<tr>
-							<th>Maadhi</th>
-							<th>Mudari</th>
+							<th className="grouping" colSpan="2">Maadhi</th>
+							<th className="grouping" colSpan="2">Mudari</th>
+						</tr>
+						<tr>
+							<th>Active</th>
+							<th>Passive</th>
+							<th>Active</th>
+							<th>Passive</th>
 						</tr>
 					</thead>
 					<tbody>
