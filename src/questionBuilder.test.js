@@ -1,7 +1,7 @@
 // Link.react-test.js
 import React from 'react';
 import { QuestionBuilder, MaadhiQuestion, TableQuestion } from './QuestionBuilder';
-import { Picker } from './picker';
+import { Picker, MaadhiPicker, MudariPicker } from './picker';
 import Util from './util';
 import _ from 'underscore';
 
@@ -60,24 +60,19 @@ describe('Builds question', () => {
     expect(table.question).toMatchSnapshot(); 
   });
 
-  test('build simple maadhi table question with active/passive', () => {
-    _.random = jest.fn();
-    _.random.mockReturnValueOnce(0) //first active - correct
-            .mockReturnValue(1); //rest passive - wrong
-    options.include = ['active', 'passive'];
-    var table = new TableQuestion(options, picker);
-    table.build(options);
-    expect(table.question).toMatchSnapshot(); 
-  });
-
   test('build simple maadhi/mudari table question', () => {
     _.random = jest.fn();
     _.random.mockReturnValueOnce(0) // first maadhi - correct
             .mockReturnValueOnce(0) //first maadhi - wrong 
             .mockReturnValue(1); //rest mudari - wrong
     options.includeGroup = ['maadhi', 'mudari'];
-    var table = new TableQuestion(options, picker);
+    var maadhiPicker = new MaadhiPicker({ correct: 0, wrong: [1]})
+    var mudariPicker = new MudariPicker({ wrong: [1,2]})
+    var table = new TableQuestion(options, null, maadhiPicker, mudariPicker);
     table.build(options);
+    expect(table.maadhiPicker.found.length).toBe(0);
+    expect(table.mudariPicker.found.length).toBe(0);
     expect(table.question).toMatchSnapshot(); 
   });
+
 })

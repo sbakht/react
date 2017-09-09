@@ -56,34 +56,6 @@ Object {
 }
 `;
 
-exports[`Builds question build simple maadhi table question with active/passive 1`] = `
-Object {
-  "choices": Array [
-    Object {
-      "isWrong": true,
-      "text": "فُعِلاَ",
-      "val": "فُعِلاَ",
-    },
-    Object {
-      "isWrong": true,
-      "text": "فُعِلُوا",
-      "val": "فُعِلُوا",
-    },
-    Object {
-      "isWrong": true,
-      "text": "فُعِلَتْ",
-      "val": "فُعِلَتْ",
-    },
-    Object {
-      "isCorrect": true,
-      "text": "فَعَلَ",
-      "val": "فَعَلَ",
-    },
-  ],
-  "text": "maadhi he",
-}
-`;
-
 exports[`Builds question build simple maadhi/mudari table question 1`] = `
 Object {
   "choices": Array [
@@ -94,13 +66,13 @@ Object {
     },
     Object {
       "isWrong": true,
-      "text": "يَفْعُلُونَ",
-      "val": "يَفْعُلُونَ",
+      "text": "يَفْعُلَانِ",
+      "val": "يَفْعُلَانِ",
     },
     Object {
       "isWrong": true,
-      "text": "تَفْعُلُ",
-      "val": "تَفْعُلُ",
+      "text": "يَفْعُلُونَ",
+      "val": "يَفْعُلُونَ",
     },
     Object {
       "isCorrect": true,

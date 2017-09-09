@@ -2,7 +2,7 @@ import _ from 'underscore';
 import Generator from './generator';
 import Util from './util';
 import { Table } from './table';
-import { Picker } from './picker';
+import { Picker, MaadhiPicker, MudariPicker } from './picker';
 
 function buildChoice(val, isCorrect) {
   if (isCorrect) {
@@ -96,7 +96,7 @@ var textMap = [
 ];
 
 class TableQuestion {
-  constructor(options, pickerClass) {
+  constructor(options, pickerClass, maadhiPicker, mudariPicker) {
     this.choose = options.choose;
     this.group = options.group;
     this.voice = options.voice || "active";
@@ -108,6 +108,10 @@ class TableQuestion {
     this.text = options.text || this.getText();
 
     this.pickerClass = pickerClass || new Picker();
+    if(this.includeGroup.length) {
+      this.maadhiPicker = maadhiPicker || new MaadhiPicker();
+      this.mudariPicker = mudariPicker || new MudariPicker();
+    }
   }
 
   build(options) {
@@ -130,8 +134,14 @@ class TableQuestion {
     var voice = this.include.length && this.include[_.random(0, this.include.length-1)] || this.voice;
     var group = this.includeGroup.length && this.includeGroup[_.random(0, this.includeGroup.length-1)] || this.group;
     var table = this.table[group][voice];
-    var i = this.pickerClass.pickCorrect();
-    return buildChoice(table[i], true);
+    if(group === "maadhi" && this.maadhiPicker) {
+      var i = this.maadhiPicker.pickCorrect();
+    }else if(group === "mudari" && this.mudariPicker) {
+      var i = this.mudariPicker.pickCorrect();
+    }else{
+      var i = this.pickerClass.pickCorrect();
+    }
+  return buildChoice(table[i], true);
   }
 
   getWrong() {
@@ -145,7 +155,13 @@ class TableQuestion {
 
   sampleR(group, voice, count) {
     var table = this.table[group][voice];
-    var i = this.pickerClass.pickWrong();
+    if(group === "maadhi" && this.maadhiPicker) {
+      var i = this.maadhiPicker.pickWrong();
+    }else if(group === "mudari" && this.mudariPicker) {
+      var i = this.mudariPicker.pickWrong();
+    }else{
+      var i = this.pickerClass.pickWrong();
+    }
     return table[i];
   }
 }

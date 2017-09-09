@@ -48,8 +48,9 @@ var questions = Array(10).fill(1).map(function() {
   var chooseFromCorrect = singular;
   // var chooseFromWrong = dual;
   var chooseFromWrong = plural.concat(dual);
-  var picker = new MudariPicker({ chooseFromCorrect, chooseFromWrong });
-  var table = new TableQuestion(options, picker);
+  var picker = new MudariPicker({ chooseFromCorrect, chooseFromWrong : plural});
+  var maadhi = new MaadhiPicker({ chooseFromCorrect, chooseFromWrong : dual})
+  var table = new TableQuestion(options, null, maadhi, picker);
   table.build(options);
   return table.question;
 })
