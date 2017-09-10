@@ -1,4 +1,5 @@
 import _ from 'underscore';
+import { append, concat, uniq, prepend, compose, curry, when } from 'ramda';
 
 var isSubArray = function(big, sub) {
   var isSub = true;
@@ -39,7 +40,6 @@ class Picker {
       var i = _.sample(this.chooseFromCorrect, 1)[0];
     } while(this.found.indexOf(i) > -1);
 
-    this.found.push(i);
     this.pushDuplicates(i);
     this.correct = i;
     return i;
@@ -57,11 +57,12 @@ class Picker {
       var i = _.sample(this.chooseFromWrong, 1)[0];
     } while(this.found.indexOf(i) > -1);
 
-    this.found.push(i);
-    this.pushDuplicates(i);
+    this.pushDuplicates(i, this.found);
     return i;
   }
-  pushDuplicates() {
+  pushDuplicates(i, found) {
+    found = append(i, found);
+    this.found = found;
   }
 }
 
@@ -70,12 +71,10 @@ class MaadhiPicker extends Picker {
     super(options);
   }
 
-  pushDuplicates(i) {
-    if(i === 7) {
-      this.found.push(10);
-    }else if(i === 10) {
-      this.found.push(7);
-    }
+  pushDuplicates(i, found) {
+    found = append(i, found);
+    found = addWhenFound(found, [7,10], i);
+    this.found = found;
   }
 }
 
@@ -84,22 +83,21 @@ class MudariPicker extends Picker {
     super(options);
   }
 
-  pushDuplicates(i) {
-    if(i === 3) {
-      this.found.push(6);
-    }else if(i === 6) {
-      this.found.push(3);
-    }else if(i == 4) {
-      this.found.push(7);
-      this.found.push(10);
-    }else if(i == 7) {
-      this.found.push(4);
-      this.found.push(10);
-    }else if(i == 10) {
-      this.found.push(4);
-      this.found.push(7);
-    }
+  pushDuplicates(i, found) {
+    found = append(i, found);
+    found = addWhenFound(found, [3,6], i);
+    found = addWhenFound(found, [4,7,10], i);
+    this.found = found;
   }
 }
+
+var addWhenFound = curry((found, arr, i) => {
+  return arr.indexOf(i) > -1 ? uniqConcat(found, arr) : found;
+});
+
+var uniqConcat = curry((found, arr) => {
+  return compose( uniq, concat(found) )(arr);
+});
+
 
 export { Picker, MaadhiPicker, MudariPicker };
