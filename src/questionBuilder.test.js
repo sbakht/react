@@ -70,8 +70,8 @@ describe('Builds question', () => {
     var mudariPicker = new MudariPicker({ wrong: [1,2]})
     var table = new TableQuestion(options, null, maadhiPicker, mudariPicker);
     table.build(options);
-    expect(table.maadhiPicker.found.length).toBe(0);
-    expect(table.mudariPicker.found.length).toBe(0);
+    expect(table.maadhiPicker.wrongs.length).toBe(0);
+    expect(table.mudariPicker.wrongs.length).toBe(0);
     expect(table.question).toMatchSnapshot(); 
   });
 

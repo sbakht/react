@@ -1,33 +1,29 @@
 import _ from 'underscore';
-import { append, concat, uniq, prepend, compose, curry, when } from 'ramda';
+import { append, concat, uniq, prepend, compose, curry, when, ifElse, found, always, contains, all, equals, head, tail, __ } from 'ramda';
 
-var isSubArray = function(big, sub) {
-  var isSub = true;
-  sub.forEach((item) => {
-    if(big.indexOf(item) === -1) {
-      isSub = false;
-      return;
-    }
-  });
+var isSubArray = (big, sub) => all( contains(__, big), sub );
 
-  return isSub;
-}
+var addWhenFound = (found, arr, i) => ifElse( contains(i), uniqConcat(found), always(found) )(arr);
+
+var uniqConcat = found => compose( uniq, concat(found) );
+
+var hasDuplicates = arr => !equals( uniq(arr), arr );
 
 class Picker {
   constructor({correct, wrong, chooseFrom, chooseFromCorrect, chooseFromWrong} = {}) {
     this.i = -1;
     this.correct = correct;
     this.wrongs = wrong || [];
-    this.found = wrong || [];
+    this.found = _.clone(wrong) || [];
     this.chooseFrom = chooseFrom || Array.apply(null, {length: 14}).map(Number.call, Number);
     this.chooseFromCorrect = chooseFromCorrect || this.chooseFrom;
     this.chooseFromWrong = chooseFromWrong || this.chooseFrom;
 
-    if(this.wrongs.indexOf(this.correct) > -1) {
+    if(contains(this.correct, this.wrongs)) {
       throw new Error('Can not have same correct and wrong index');
     }
 
-    if(_.uniq(this.wrongs).length < this.wrongs.length) {
+    if(hasDuplicates(this.wrongs)) {
       throw new Error('Can not have duplicate wrong index');
     }
   }
@@ -38,7 +34,7 @@ class Picker {
 
     do {
       var i = _.sample(this.chooseFromCorrect, 1)[0];
-    } while(this.found.indexOf(i) > -1);
+    } while( contains(i, this.found) );
 
     this.pushDuplicates(i);
     this.correct = i;
@@ -46,16 +42,23 @@ class Picker {
   }
   pickWrong() {
     if(this.wrongs.length) {
-      return this.wrongs.shift();
+      var first = head(this.wrongs);
+      this.wrongs = tail(this.wrongs);
+      return first;
     }
 
     if(isSubArray(this.found, this.chooseFromWrong)) {
       throw new Error('Out of unique indexes');
     } 
     
-    do {
-      var i = _.sample(this.chooseFromWrong, 1)[0];
-    } while(this.found.indexOf(i) > -1);
+    var getFromWrong = (found, chooseFromWrong, i) => {
+      do {
+        var i = _.sample(chooseFromWrong, 1)[0];
+      } while( contains(i, found) );
+      return i;
+    }
+
+    var i = getFromWrong(this.found, this.chooseFromWrong, i);
 
     this.pushDuplicates(i, this.found);
     return i;
@@ -90,14 +93,6 @@ class MudariPicker extends Picker {
     this.found = found;
   }
 }
-
-var addWhenFound = curry((found, arr, i) => {
-  return arr.indexOf(i) > -1 ? uniqConcat(found, arr) : found;
-});
-
-var uniqConcat = curry((found, arr) => {
-  return compose( uniq, concat(found) )(arr);
-});
 
 
 export { Picker, MaadhiPicker, MudariPicker };
