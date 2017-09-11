@@ -32,9 +32,18 @@ class Picker {
       return this.correct; 
     }
 
-    do {
-      var i = _.sample(this.chooseFromCorrect, 1)[0];
-    } while( contains(i, this.found) );
+    var getFromCorrect = (found, chooseFromWrong) => {
+      var uniqWrongs = chooseFromWrong.filter((w) => {
+        return !contains(w, found);
+      });
+      var i = _.sample(uniqWrongs, 1)[0];
+      if( contains(i, found) ) {
+        //console.log(_.sample);
+        var i = _.sample(uniqWrongs, 1)[0];
+      }
+      return i;
+    }
+    var i = getFromCorrect(this.found, this.chooseFromCorrect);
 
     this.pushDuplicates(i);
     this.correct = i;
@@ -51,14 +60,19 @@ class Picker {
       throw new Error('Out of unique indexes');
     } 
     
-    var getFromWrong = (found, chooseFromWrong, i) => {
-      do {
-        var i = _.sample(chooseFromWrong, 1)[0];
-      } while( contains(i, found) );
+    var getFromWrong = (found, chooseFromWrong) => {
+      var uniqWrongs = chooseFromWrong.filter((w) => {
+        return !contains(w, found);
+      });
+      var i = _.sample(uniqWrongs, 1)[0];
+      if( contains(i, found) ) {
+        //console.log(_.sample);
+        var i = _.sample(uniqWrongs, 1)[0];
+      }
       return i;
     }
 
-    var i = getFromWrong(this.found, this.chooseFromWrong, i);
+    var i = getFromWrong(this.found, this.chooseFromWrong);
 
     this.pushDuplicates(i, this.found);
     return i;

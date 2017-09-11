@@ -110,7 +110,6 @@ test('Mudari picker doesnt allow 4/7, 5/8/11 duplicate', () => {
 });
 
 test('Can pick the pool of choices', () => {
-  _.sample.mockRestore();
   var options = {chooseFrom : [3,5,6]}
   var picker = new Picker(options);
   expect(options.chooseFrom.indexOf(picker.pickCorrect())).toBeGreaterThan(-1);
@@ -141,4 +140,10 @@ test('throws error when out of wrong choices', () => {
   var picker = new Picker(options);
   picker.pickWrong();
   expect(() => picker.pickWrong()).toThrow();
+});
+
+afterEach(() => {
+    if(_.sample._isMockFunction) {
+      _.sample.mockRestore();
+    }
 });
