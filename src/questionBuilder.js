@@ -120,14 +120,14 @@ class TableQuestion {
     var choices = wrong.concat(correct);
 
     var question = {
-      text : this.text,
+      text : this.getText(),
       choices
     }
     this.question = question;
   }
 
   getText() {
-    return `${this.group} ${textMap[this.choose]}`;
+    return `${this.voice} ${this.group} ${textMap[this.choose]}`;
   }
 
   getCorrect() {
@@ -141,6 +141,9 @@ class TableQuestion {
     }else{
       var i = this.pickerClass.pickCorrect();
     }
+    this.group = group;
+    this.choose = i;
+    this.voice = voice;
   return buildChoice(table[i], true);
   }
 

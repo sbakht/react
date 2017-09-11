@@ -37,9 +37,9 @@ var options = { letters : "كرم", group : "mudari", type : "type1",
                 include: ['active','passive'],
                 includeGroup: ['maadhi', 'mudari']
               }
-var questions = Array(10).fill(1).map(function() {
-  options.choose = _.random(0,13);
-  options.text = "Pick the plural verb";
+var questions = Array(50).fill(1).map(function() {
+  // options.choose = _.random(0,13);
+  // options.text = "Pick the plural verb";
   // options.include = ['active', 'passive'];
   var singular = FilterByName.filter("singular").toIndex();
   var dual = FilterByName.filter("dual").toIndex();
@@ -47,9 +47,9 @@ var questions = Array(10).fill(1).map(function() {
   // var chooseFromCorrect = [options.choose];
   var chooseFromCorrect = singular;
   // var chooseFromWrong = dual;
-  var chooseFromWrong = plural.concat(dual);
-  var picker = new MudariPicker({ chooseFromCorrect, chooseFromWrong : plural});
-  var maadhi = new MaadhiPicker({ chooseFromCorrect, chooseFromWrong : dual})
+  var chooseFromWrong = dual.concat(plural);
+  var picker = new MudariPicker();
+  var maadhi = new MaadhiPicker()
   var table = new TableQuestion(options, null, maadhi, picker);
   table.build(options);
   return table.question;

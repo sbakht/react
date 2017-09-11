@@ -24,7 +24,7 @@ Object {
       "val": "فَعَلَ",
     },
   ],
-  "text": "maadhi he",
+  "text": "active maadhi he",
 }
 `;
 
@@ -52,7 +52,7 @@ Object {
       "val": "يَفْعُلُ",
     },
   ],
-  "text": "mudari he",
+  "text": "active mudari he",
 }
 `;
 
@@ -80,7 +80,7 @@ Object {
       "val": "فَعَلَ",
     },
   ],
-  "text": "maadhi he",
+  "text": "active maadhi he",
 }
 `;
 
@@ -108,7 +108,7 @@ Object {
       "val": "فُعِلَ",
     },
   ],
-  "text": "maadhi he",
+  "text": "passive maadhi he",
 }
 `;
 
@@ -136,7 +136,7 @@ Object {
       "val": "يُفْعَلُ",
     },
   ],
-  "text": "mudari he",
+  "text": "passive mudari he",
 }
 `;
 

@@ -36,7 +36,7 @@ class Quiz extends React.Component {
     var choices = this.getActiveQuestion().choices;
     if(e.keyCode === 13) {
       if(this.state.index < this.props.questions.length - 1) {
-        this.nextQuestion();
+        this.nextQuestion(e);
       }else if(!this.state.showResults){
         this.showResults();
       }
