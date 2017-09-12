@@ -19,17 +19,14 @@ test('Picker set indexes', () => {
   expect(picker.pickWrong()).toBe(4);
 });
 
-test('Picker gets random indexes - keeps regenerating until finds unique', () => {
-  var sample = jest.spyOn(_, 'sample');
-  sample.mockReturnValueOnce([1])
-          .mockReturnValueOnce([1])
-          .mockReturnValueOnce([2])
-          .mockReturnValueOnce([2])
-          .mockReturnValueOnce([3])
+test('Picker filters out correct when choosing wrong', () => {
   var picker = new Picker();
-  expect(picker.pickCorrect(true)).toBe(1);
-  expect(picker.pickWrong()).toBe(2);
-  expect(picker.pickWrong()).toBe(3);
+  picker.found = _.range(2,14);
+  var correct = picker.pickCorrect();
+  var wrong = picker.pickWrong();
+  expect(correct).toBeLessThan(2);
+  expect(wrong).toBeLessThan(2);
+  expect(wrong).not.toBe(correct);
 });
 
 test('Picker correct is singleton', () => {
@@ -60,12 +57,10 @@ test('Picker throws error pass multiple of same wrong index', () => {
   expect(() => new Picker(options)).toThrow();
 });
 
-test('Picker checks correct against sent wrongs', () => {
-  var sample = jest.spyOn(_, 'sample');
-  sample.mockReturnValueOnce([1])
-          .mockReturnValueOnce([2])
-  var picker = new Picker({ wrong: [1]});
-  expect(picker.pickCorrect()).toBe(2);
+test('Picker filters given wrongs when picking correct choice', () => {
+  var picker = new Picker({ wrong: [0,1,2,3,4,5,11,12,13]});
+  expect(picker.pickCorrect()).toBeGreaterThan(5);
+  expect(picker.pickCorrect()).toBeLessThan(11);
 });
 
 test('Maadhi picker doesnt allow 8/11 duplicate', () => {

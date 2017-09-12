@@ -32,20 +32,15 @@ class Picker {
       return this.correct; 
     }
 
-    var getFromCorrect = (found, chooseFromWrong) => {
-      var uniqWrongs = chooseFromWrong.filter((w) => {
+    var getFromCorrect = (found, chooseFromCorrect) => {
+      var uniqWrongs = chooseFromCorrect.filter((w) => {
         return !contains(w, found);
       });
       var i = _.sample(uniqWrongs, 1)[0];
-      if( contains(i, found) ) {
-        //console.log(_.sample);
-        var i = _.sample(uniqWrongs, 1)[0];
-      }
       return i;
     }
     var i = getFromCorrect(this.found, this.chooseFromCorrect);
-
-    this.pushDuplicates(i);
+    this.pushDuplicates(i, this.found);
     this.correct = i;
     return i;
   }
@@ -67,7 +62,7 @@ class Picker {
       var i = _.sample(uniqWrongs, 1)[0];
       if( contains(i, found) ) {
         //console.log(_.sample);
-        var i = _.sample(uniqWrongs, 1)[0];
+        // var i = _.sample(uniqWrongs, 1)[0];
       }
       return i;
     }
