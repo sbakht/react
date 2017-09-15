@@ -7,16 +7,6 @@ var addWhenFound = (found, arr, i) => ifElse( contains(i), uniqConcat(found), al
 
 var uniqConcat = found => compose( uniq, concat(found) );
 
-var hasDuplicates = arr => !equals( uniq(arr), arr );
-
-var getChoice = (found, chooseFromWrong) => {
-    var uniqWrongs = chooseFromWrong.filter((w) => {
-        return !contains(w, found);
-    });
-    var i = _.sample(uniqWrongs, 1)[0];
-    return i;
-}
-
 class Picker {
   constructor({correct, wrong} = {}) {
     this.correct = correct;
@@ -28,15 +18,17 @@ class Picker {
     }
 
   }
+
   pickCorrect() {
-    var first = this.correct;
-    if(typeof this.correct === "number") {
-      this.found = this.pushDuplicates(first, this.found);
-      return first;
+    var correct = this.correct;
+    if(typeof correct === "number") {
+      this.found = this.pushDuplicates(correct, this.found);
+      return correct;
     }
 
     throw new Error('No correct value set');
   }
+
   pickWrong() {
     var first = head(this.wrongs);
     this.wrongs = tail(this.wrongs);
@@ -47,6 +39,7 @@ class Picker {
 
     return first;
   }
+
   pushDuplicates(i, found) {
     if(!isNil(i) && !contains(i, found)) return append(i, found);
     return found;

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "enzyme": "^2.9.1",
+    "folktale": "^2.0.1",
     "prop-types": "^15.5.10",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
