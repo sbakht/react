@@ -2,7 +2,7 @@ import _ from 'underscore';
 import Generator from './generator';
 import Util from './util';
 import { Table } from './table';
-import { Picker, MaadhiPicker, MudariPicker } from './picker';
+import { Picker, MaadhiPicker, MudariPicker, pickCorrect, pickWrong } from './picker';
 
 function buildChoice(val, isCorrect) {
   if (isCorrect) {
@@ -135,11 +135,11 @@ class TableQuestion {
     var group = this.includeGroup.length && this.includeGroup[_.random(0, this.includeGroup.length-1)] || this.group;
     var table = this.table[group][voice];
     if(group === "maadhi" && this.maadhiPicker) {
-      var i = this.maadhiPicker.pickCorrect();
+      var i = pickCorrect(this.maadhiPicker);
     }else if(group === "mudari" && this.mudariPicker) {
-      var i = this.mudariPicker.pickCorrect();
+      var i = pickCorrect(this.mudariPicker);
     }else{
-      var i = this.pickerClass.pickCorrect();
+      var i = pickCorrect(this.pickerClass);
     }
     this.group = group;
     this.choose = i;
@@ -159,11 +159,11 @@ class TableQuestion {
   sampleR(group, voice, count) {
     var table = this.table[group][voice];
     if(group === "maadhi" && this.maadhiPicker) {
-      var i = this.maadhiPicker.pickWrong();
+      var i = pickWrong(this.maadhiPicker);
     }else if(group === "mudari" && this.mudariPicker) {
-      var i = this.mudariPicker.pickWrong();
+      var i = pickWrong(this.mudariPicker);
     }else{
-      var i = this.pickerClass.pickWrong();
+      var i = pickWrong(this.pickerClass);
     }
     return table[i];
   }

@@ -1,11 +1,62 @@
 import _ from 'underscore';
 import { append, concat, uniq, prepend, compose, curry, when, ifElse, found, always, contains, all, equals, head, tail, isNil, __ } from 'ramda';
 
+// isSubArray :: (Eq a) => [a] -> [a] -> Bool
 var isSubArray = (big, sub) => all( contains(__, big), sub );
 
-var addWhenFound = (found, arr, i) => ifElse( contains(i), uniqConcat(found), always(found) )(arr);
+// addWhenFound :: [Found] -> Int -> [Duplicate] -> [Found]
+var addWhenFound = (found, i, arr) => ifElse( contains(i), uniqConcat(found), always(found) )(arr);
 
+// uniqConcat :: (Eq a) => [a] -> [a] -> [a]
 var uniqConcat = found => compose( uniq, concat(found) );
+
+// pickCorrect :: Picker -> Error or Int
+// UNPURE
+var pickCorrect = (picker) => {
+  const { correct, found, pushDuplicates} = picker;
+  if(typeof correct === "number") {
+    picker.found = pushDuplicates(correct, found);
+    return correct;
+  }
+
+  throw new Error('No correct value set');
+}
+
+// pickWrong :: Picker -> Error or Int
+// UNPURE
+var pickWrong = (picker) => {
+  const { wrongs, found, pushDuplicates } = picker;
+  var first = head(wrongs);
+  picker.wrongs = tail(wrongs);
+
+  picker.found = pushDuplicates(first, found);
+
+  if(isNil(first)) throw new Error('Out of wrong values'); 
+
+  return first;
+}
+
+// pushDuplicates :: (Eq a) => a -> [a] -> [a]
+var pushDuplicates = (i, found) => {
+  if(!isNil(i) && !contains(i, found)) return append(i, found);
+  return found;
+}
+
+// pushMaadhiDuplicates :: (Eq a) => a -> [a] -> [a]
+var pushMaadhiDuplicates = (i, found) => {
+  found = pushDuplicates(i, found);
+  found = addWhenFound(found, i, [7,10]);
+  return found;
+}
+
+// pushMudariDuplicates :: (Eq a) => a -> [a] -> [a]
+var pushMudariDuplicates = (i, found) => {
+  found = pushDuplicates(i, found);
+  found = addWhenFound(found, i, [3,6]);
+  found = addWhenFound(found, i, [4,7,10]);
+  return found;
+}
+
 
 class Picker {
   constructor({correct, wrong} = {}) {
@@ -19,30 +70,8 @@ class Picker {
 
   }
 
-  pickCorrect() {
-    var correct = this.correct;
-    if(typeof correct === "number") {
-      this.found = this.pushDuplicates(correct, this.found);
-      return correct;
-    }
-
-    throw new Error('No correct value set');
-  }
-
-  pickWrong() {
-    var first = head(this.wrongs);
-    this.wrongs = tail(this.wrongs);
-
-    this.found = this.pushDuplicates(first, this.found);
-
-    if(isNil(first)) throw new Error('Out of wrong values'); 
-
-    return first;
-  }
-
   pushDuplicates(i, found) {
-    if(!isNil(i) && !contains(i, found)) return append(i, found);
-    return found;
+    return pushDuplicates(i, found);
   }
 }
 
@@ -52,9 +81,7 @@ class MaadhiPicker extends Picker {
   }
 
   pushDuplicates(i, found) {
-    found = super.pushDuplicates(i, found);
-    found = addWhenFound(found, [7,10], i);
-    return found;
+    return pushMaadhiDuplicates(i, found);
   }
 }
 
@@ -64,12 +91,9 @@ class MudariPicker extends Picker {
   }
 
   pushDuplicates(i, found) {
-    found = super.pushDuplicates(i, found);
-    found = addWhenFound(found, [3,6], i);
-    found = addWhenFound(found, [4,7,10], i);
-    return found;
+    return pushMudariDuplicates(i, found);
   }
 }
 
 
-export { Picker, MaadhiPicker, MudariPicker };
+export { Picker, MaadhiPicker, MudariPicker, pickCorrect, pickWrong };
