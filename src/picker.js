@@ -75,19 +75,32 @@ class Picker {
   }
 }
 
-class MaadhiPicker extends Picker {
-  constructor(options) {
-    super(options);
-  }
+class MaadhiPicker {
+  constructor({correct, wrong} = {}) {
+    this.correct = correct;
+    this.wrongs = wrong || [];
+    this.found = [];
 
+    if(contains(this.correct, this.wrongs)) {
+      throw new Error('Can not have same correct and wrong value');
+    }
+
+  }
   pushDuplicates(i, found) {
     return pushMaadhiDuplicates(i, found);
   }
 }
 
-class MudariPicker extends Picker {
-  constructor(options) {
-    super(options);
+class MudariPicker {
+  constructor({correct, wrong} = {}) {
+    this.correct = correct;
+    this.wrongs = wrong || [];
+    this.found = [];
+
+    if(contains(this.correct, this.wrongs)) {
+      throw new Error('Can not have same correct and wrong value');
+    }
+
   }
 
   pushDuplicates(i, found) {
